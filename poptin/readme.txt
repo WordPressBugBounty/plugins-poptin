@@ -43,7 +43,7 @@ Our popup plugin includes exit intent trigger on the free plan and many other ad
 = What do you get with Poptin? = 
 * Create popups and contact forms in minutes using a drag & drop popup editor 🚀
 
-* Choose from a wide range of fully responsive and well-designed popups and lead forms templates, including lightbox, welcome screen, notification bar, floating bar, slide-in, sidebar, Facebook likebox, mobile popups, video pop up, countdown & timer popups and many more
+* Choose from a wide range of fully responsive and well-designed popups and lead forms templates, including lightbox, welcome screen, notification bar, floating bar, slide-in, sidebar, Facebook likebox, mobile popups, video pop up, countdown & timer popups, and many more pop up templates
 
 * Create beautiful inline forms using our powerful form builder: use our designed templates or create your own contact form from scratch. Add your embedded form anywhere on your website using a shortcode
 
