@@ -1,9 +1,9 @@
 <?php
 /*
 Plugin Name: Poptin
-Contributors: galdub, tomeraharon
+Contributors: poptin, galdub, tomeraharon
 Description: Use Poptin to get more leads, sales, and email subscribers. Create targeted beautiful pop ups and forms in less than 2 minutes with ease.
-Version: 1.3.2
+Version: 1.3.3
 Author: Poptin
 Author URI: https://www.poptin.com
 Text Domain: poptin
@@ -18,7 +18,7 @@ if (!defined('ABSPATH')) {
     exit;
 }
 
-define('POPTIN_VERSION', '1.3.2');
+define('POPTIN_VERSION', '1.3.3');
 define('POPTIN_PATH', dirname(__FILE__));
 define('POPTIN_PATH_INCLUDES', dirname(__FILE__) . '/inc');
 define('POPTIN_FOLDER', basename(POPTIN_PATH));
@@ -370,10 +370,10 @@ class POPTIN_Plugin_Base
                 header("Location: " . $login_url);
                 exit(0);
             } else {
-                exit(wp_redirect("admin.php?page=Poptin"));
+                exit(wp_redirect(admin_url("admin.php?page=Poptin")));
             }
         }
-        exit(wp_redirect("admin.php?page=Poptin"));
+        exit(wp_redirect(admin_url("admin.php?page=Poptin")));
     }
 
 
@@ -400,6 +400,10 @@ class POPTIN_Plugin_Base
             wp_enqueue_script('jquery');
             wp_register_script('poptin-admin', plugins_url('assets/js/poptin-admin.js', __FILE__), array('jquery'), '1.0.6', true);
             wp_enqueue_script('poptin-admin');
+            $settings = [
+                'after_registration_url' => admin_url("admin.php?page=Poptin&poptin_logmein=true&after_registration=wordpress")
+            ];
+            wp_localize_script('poptin-admin', 'poptin_settings', $settings);
             wp_register_script('bootstrap-modal', plugins_url('assets/js/bootstrap.min.js', __FILE__), array('jquery'), '1.0', true);
             wp_enqueue_script('bootstrap-modal');
         }
@@ -694,7 +698,7 @@ function poptin_plugin_redirect()
 {
     if (!defined("DOING_AJAX") && get_option('poptin_plugin_redirection', false)) {
         delete_option('poptin_plugin_redirection');
-        exit(wp_redirect("admin.php?page=Poptin"));
+        exit(wp_redirect(admin_url("admin.php?page=Poptin")));
     }
 }
 

@@ -941,3 +941,380 @@ input:focus {
         transform: translate(24px, 0);
     }
 }
+
+/* ---------------------------
+Start: Poptin Support Widget
+---------------------------- */
+.ps-widget {
+    --page-spacing: 35px;
+    --z-index: 9999;
+    --trigger-btn-size: 64px;
+    --inner-px: 28px;
+    position: fixed;
+    right: var(--page-spacing);
+    bottom: var(--page-spacing);
+    z-index: var(--z-index);
+}
+
+.ps-widget__trigger-btn {
+    border: 0;
+    border-radius: 50%;
+    background-color: transparent;
+    filter: drop-shadow(0px 8px 16px rgba(20, 34, 54, 0.14));
+    width: var(--trigger-btn-size);
+    height: var(--trigger-btn-size);
+    cursor: pointer;
+}
+
+.ps-widget__trigger-btn img {
+    transform: rotate(0deg);
+    transition: transform 0.4s;
+}
+
+.ps-widget__popover {
+    display: none;
+    opacity: 0;
+    width: 276px;
+    background-color: #fff;
+    border-radius: 12px;
+    overflow: hidden;
+    position: absolute;
+    bottom: 30px;
+    right: 0;
+    box-shadow: 0px 12px 48px -6px rgba(20, 34, 54, 0.38), 0px 3px 18px -2px rgba(20, 34, 54, 0.16);
+}
+
+.ps-widget__popover__header {
+    position: relative;
+    height: 54px;
+    isolation: isolate;
+    display: flex;
+    align-items: center;
+}
+
+.ps-widget__popover__header__bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    user-select: none;
+    transform: scale(1.5);
+    transform-origin: right bottom;
+    transition: transform 0.4s;
+}
+
+.ps-widget__popover__header__title {
+    z-index: 1;
+    padding-left: var(--inner-px);
+    padding-right: var(--inner-px);
+    padding-top: 5px;
+    padding-bottom: 5px;
+    font-size: 16px;
+    font-weight: 600;
+    color: #0C1D36;
+    font-family: 'Poppins', sans-serif;
+}
+
+.ps-widget__popover__header__bird {
+    position: absolute;
+    z-index: 1;
+    right: -50px;
+    bottom: 0;
+    user-select: none;
+}
+
+.ps-widget__popover__body {
+    padding: var(--inner-px);
+}
+
+.ps-widget__popover__body {
+    display: grid;
+    gap: 24px;
+}
+
+.ps-widget__popover__body__item {
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    cursor: pointer;
+}
+
+.ps-widget__popover__body__item span {
+    font-size: 16px;
+    color: #0C1D36;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+    transition: color 0.4s;
+}
+
+.ps-widget__popover__body__item svg {
+    color: #747C97
+}
+
+.ps-widget__popover__body__item:hover span {
+    color: #7761DF;
+}
+
+.ps-widget__popover__body__item:hover svg {
+    color: #7761DF;
+}
+
+/* ---------------------------
+End: Poptin Support Widget
+---------------------------- */
+body.mobile.modal-open #wpwrap {
+    position: static;
+}
+/* ---------------------------
+Start: Responsive
+---------------------------- */
+@media (max-width: 1300px) {
+    .poptinWrap {
+        max-width: 980px;
+        padding: 20px;
+        width: auto;
+    }
+
+    .poptinContentBox {
+        padding: 20px;
+        flex-basis: 45%;
+        width: 400px;
+    }
+
+    .poptinFeaturesBox {
+        margin-left: 20px;
+        position: relative;
+        overflow: hidden;
+        flex-basis: 55%;
+    }
+
+    .poptinFeaturesList {
+        gap: 10px;
+    }
+
+    .poptinWrap .customersReview .poptinCustomer {
+        padding: 14px;
+    }
+
+    .poptinWrap .marketplace>div {
+        margin: 0 2px;
+    }
+
+    .poptinContentBox .poptinView .description {
+        font-size: 14px;
+    }
+
+    #poptinExplanatoryVideo.modal .card,
+    #whereIsMyId.modal .card
+    {
+        max-width: 650px;
+        width: 650px !important;
+    }
+
+    #poptinExplanatoryVideo.modal .card iframe{
+        width: 580px !important;
+        height: 330px !important;
+    }
+
+    #whereIsMyId.modal .card .card-content {
+        grid-template-columns: 1fr 1fr;
+        max-height: 400px;
+        overflow-y: auto;
+    }
+
+    .poptinContentBox .poptinLogged .poptinView .footer .important-note {
+        width: calc(100% - 45px);
+    }
+}
+
+@media (max-width: 1000px) {
+    .poptinWrap {
+        max-width: 575px;
+        flex-direction: column;
+        padding: 32px;
+        height: auto !important;
+        max-height: fit-content !important;
+    }
+
+    .poptinContentBox {
+        flex-basis: 100%;
+        width: 100%;
+        padding-bottom: 140px;
+    }
+
+    .poptinFeaturesBox {
+        flex-basis: 100%;
+        margin-left: 0px;
+    }
+
+    .poptinContentBox .poptinView,
+    .poptinContentBox .poptinView form {
+        margin-top: 60px;
+    }
+
+    .poptinFeaturesBox>img {
+        display: none;
+    }
+
+    .poptinWrap .customersReview {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .marketplace {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        margin-top: 30px !important;
+        padding-bottom: 80px;
+        column-gap: 15px;
+        row-gap: 35px;
+    }
+
+    .poptinWrap .marketplace>div>div>div {
+        margin-top: 2px;
+    }
+
+    .poptinWrap .marketplace>div {
+        margin: 0 !important;
+    }
+
+    .poptinWrap .marketplace>div .pipe {
+        display: none;
+    }
+
+    #poptinExplanatoryVideo.modal .card,
+    #whereIsMyId.modal .card
+    {
+        max-width: 550px;
+        width: 550px !important;
+    }
+
+    #poptinExplanatoryVideo.modal .card iframe{
+        width: 480px !important;
+        height: 230px !important;
+    }
+
+    #whereIsMyId.modal .card .card-content {
+        grid-template-columns: 1fr;
+    }
+
+    .find-id-1,
+    .find-id-2,
+    .find-id-3 {
+        display: flex;
+        flex-direction: column-reverse;
+    }
+
+    .poptinContentBox .poptinLogged .poptinView .footer {
+        position: relative;
+        transform: translateY(80%);
+    }
+
+    .poptinContentBox .poptinLogged .poptinView .footer .important-note {
+        width: calc(100% - 30px);
+    }
+}
+
+@media (max-width: 600px) {
+    .poptinWrap {
+        border-radius: 12px;
+    }
+
+    .poptinContentBox {
+        border-radius: 12px;
+    }
+
+    .poptinContentBox .poptinView .title {
+        font-size: 28px;
+        line-height: 1.3;
+    }
+
+    .poptinContentBox .poptinView .description {
+        font-size: 12px;
+        margin-top: 10px;
+    }
+
+    .poptinWrap .customersReview {
+        grid-template-columns: 1fr;
+    }
+
+    .poptinContentBox .poptinView,
+    .poptinContentBox .poptinView form {
+        margin-top: 45px;
+    }
+
+    .poptinFeaturesList {
+        flex-direction: column;
+        gap: 0;
+    }
+
+    .poptinFeaturesTitle {
+        margin-bottom: 25px;
+    }
+
+    .poptinTestimonials {
+        margin-top: 25px;
+    }
+
+    .poptinFeaturesBox .poptinFeatures .poptinFeaturesList ul {
+        margin: 0;
+        pad: 0;
+    }
+
+    #poptinExplanatoryVideo.modal .card,
+    #whereIsMyId.modal .card
+    {
+        max-width: 350px;
+        width: 350px !important;
+    }
+
+    #poptinExplanatoryVideo.modal .card iframe{
+        width: 340px !important;
+        height: 200px !important;
+    }
+
+    #lookfamiliar.modal .card, #byebyeModal.modal .card, #makingsure.modal .card {
+        width: 360px;
+    }
+
+    #whereIsMyId.modal .card {
+        padding: 30px 16px;
+    }
+
+    #whereIsMyId.modal .card .foot {
+        width: 100%;
+    }
+
+    #whereIsMyId.modal .card .card-content {
+        max-height: 500px;
+    }
+}
+
+@media (max-width: 450px) {
+    .marketplace {
+        grid-template-columns: 1fr;
+    }
+
+    .poptinLearnMore span, .poptinLearnMore a {
+        font-size: 12px;
+    }
+
+    .poptinWrap {
+        padding: 16px;
+        border-radius: 8px
+    }
+
+    .poptinContentBox {
+        border-radius: 8px;
+    }
+
+    #lookfamiliar.modal .card, #byebyeModal.modal .card, #makingsure.modal .card {
+        width: 340px;
+    }
+}
+
+/* ---------------------------
+End: Responsive
+---------------------------- */

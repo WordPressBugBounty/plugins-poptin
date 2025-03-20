@@ -1,9 +1,9 @@
-﻿=== Pop ups, WordPress Exit Intent Popup, Email Pop Up, Lightbox Pop Up, Spin the Wheel, Contact Form Builder – Poptin ===
-Contributors: galdub, tomeraharon, poptin
+﻿=== Pop ups, WordPress Exit Intent Popup, Email Pop Up Builder, Lightbox, Spin the Wheel Popups – Poptin ===
+Contributors: poptin, galdub, tomeraharon
 Tags: pop ups, popups, exit intent, email pop up, popup
 Requires at least: 3.1
-Tested up to: 6.6
-Stable tag: 1.3.2
+Tested up to: 6.8
+Stable tag: 1.3.3
 Plugin URI: https://www.poptin.com
 License: GPLv3
 
@@ -29,7 +29,7 @@ License: GPLv3
 
 Poptin forms and popup plugin tracks the website's visitors' behavior and shows the right message at the right time. The platform helps to improve conversion rate and turn more visitors into leads, sales, newsletter subscribers, increases engagement, and recovers abandoning website and cart visitors using exit offers and <a href="https://www.poptin.com/blog/exit-intent-technology-can-grow-business/" target="_blank" title="exit intent">exit intent</a> technology and many other triggers
 
-[youtube  https://www.youtube.com/watch?v=vzr6JvYWpkg]
+[youtube  https://www.youtube.com/watch?v=gZGz0tawfx8]
 
 > <strong>Open a Poptin account for free</strong><br>
 > Poptin is a web application that works perfectly with WordPress and many more web platforms. Start creating your first popups and contact forms by <a href="https://app.popt.in/register?utm_source=wordpress" target="_blank" title="open free Poptin account"><strong>opening your free account</strong></a>
@@ -115,7 +115,7 @@ Our exit intent trigger is included in the free plan. Create any type of exit po
   - <a href="https://www.poptin.com/gdpr/" target="_blank" title="Click here">Click here</a> to read more about Poptin's GDPR changes
 
 = Drag and Drop Inline Form Builder =
-Create inline contact forms using Poptin. Once you use our form builder and create your contact form, use our shortcode and add the form anywhere on your website. When you create embedded forms with Poptin you can use our smart targeting and triggers options to maximize the conversion rate.
+Create inline contact forms with Poptin. Once you use our form builder and create your contact form, use our shortcode and add the form anywhere on your website. When you create embedded forms with Poptin you can use our smart targeting and triggers options to maximize the conversion rate.
 
 Using our powerful form builder you can create beautiful forms. Use our contact form templates or create your own form from scratch. Add elements that’ll increase your conversion rate like countdown timer, video, custom HTML, images, shapes, attention effect for your button and more. 
 
@@ -128,13 +128,13 @@ You can also connect your contact form to our native integrations, including Mai
 Want to create a different version of your embedded form for mobile and for desktop? Use our form builder to create different versions for desktop and mobile, and display them using the same shortcode.
 
 
-[youtube  https://www.youtube.com/watch?v=VKgyjlR4j18]
+[youtube  https://www.youtube.com/watch?v=3cVDhT68MEY]
 
 > <strong>Open a Poptin account for free</strong><br>
 > Poptin is a web application that works perfectly with WordPress and many more web platforms. Start creating your first popup and contact form by <a href="https://app.popt.in/register?utm_source=wordpress" target="_blank" title="open a free Poptin account"><strong>opening your free account here</strong></a>
 
 = Gamified Pop ups =
-An easy-to-use gamified popup builder you can easily integrate to your website. Poptin’s new gamified popups allow you to create three kinds: spin the wheel pop ups, scratch card popups, and gift pop ups. These pop ups are ideal for WooCommerce stores.
+An easy-to-use gamified popup builder you can easily integrate to your website. Poptin’s gamified popups allow you to create three kinds: spin the wheel pop ups, scratch card popups, and gift pop ups. These pop ups are ideal for WooCommerce stores.
 
 Generate more leads and encourage more sales by giving customers an engaging way to earn coupon codes and special offers from you!
 
@@ -154,7 +154,7 @@ Pick a gift pop ups let your customers pick from one of three gifts for a chance
 
 Appeal to the kids in your customers by adding gamified pop ups on your website.
 
-[youtube  https://www.youtube.com/watch?v=2K6FBJx1H4c]
+[youtube  https://www.youtube.com/watch?v=lxWOrky14so]
 
 = Autoresponder =
 With the autoresponder, send an automatic email to visitors that submitted your pop ups and contact forms. Send an autoresponder for:
@@ -239,6 +239,9 @@ You can connect Poptin for free to your favorite email platform and CRM includin
 11. Design your own stunning mobile pop up
 
 == Changelog ==
+
+= 1.3.3 =
+Improved responsiveness and more support options
 
 = 1.3.2 =
 WordPress 6.5 compatibility
