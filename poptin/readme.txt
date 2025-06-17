@@ -3,11 +3,11 @@ Contributors: poptin, galdub, tomeraharon
 Tags: pop ups, popups, exit intent, email pop up, popup
 Requires at least: 3.1
 Tested up to: 6.8
-Stable tag: 1.3.3
+Stable tag: 1.3.4
 Plugin URI: https://www.poptin.com
 License: GPLv3
 
-🔥 Pop ups & contact forms builder. Get more sales & subscribers with beautiful popups, forms, lightbox popup, notification bar & more templates 😍
+🔥 Pop ups & contact forms builder. Get more sales & subscribers with beautiful popups, forms, lightbox popup, notification bar & pop up templates 😍
 
 == Description ==
 
@@ -89,13 +89,13 @@ Our exit intent trigger is included in the free plan. Create any type of exit po
   - Send Slack messages for new Poptin leads
   - Send Twilio SMS for new Poptin leads
 
-* Create popups and forms in any language: English, Mandarin, Portuguese, Spanish, Hindi, Arabic, Russian, Hebrew, German, Japanese, Italian, Polish, Thai, Ukrainian, Dutch, Greek, Hungarian, Romanian, Persian, Korean and more
+* Create popups and forms in any language: English, Mandarin, Portuguese, Spanish, Hindi, Arabic, Russian, Hebrew, German, Japanese, Italian, Polish, Thai, Ukrainian, Dutch, Greek, Hungarian, Romanian, Persian, Korean, and more
 
-* RTL support: all the popups and forms you create are 100% RTL supported
+* RTL support: all the popups and forms are 100% RTL supported
 
 * Dynamic tags for your pop ups and forms - add dynamic Merge Tags to your pop ups and contact forms. Display dynamic text or image that is pulled from a class or ID on your page, or even from a UTM parameter. Use this feature to create dynamic pop ups and contact forms based on your website's content
 
-* Use our custom HTML feature to embed Playbuzz quizzes, social share buttons, Opinion Stage polls, Apester, Google surveys, Google maps, Typeform, Jotform, Wufoo and more
+* Use our custom HTML feature to embed Playbuzz quizzes, social share buttons, Opinion Stage polls, Apester, Google surveys, Google maps, Typeform, Jotform, Wufoo widgets and more
 
 * Launch a pop up from another pop up and create double opt-in, triple opt-in or any flow you want. You can create 2-step lightbox pop up or even slide-in with a button that will launch a light-box or a full-screen overlay.
 
@@ -114,8 +114,10 @@ Our exit intent trigger is included in the free plan. Create any type of exit po
   - Decreased number of cookies
   - <a href="https://www.poptin.com/gdpr/" target="_blank" title="Click here">Click here</a> to read more about Poptin's GDPR changes
 
+* Create unique or fixed-value coupons that embed directly in popups and track their usage for performance insights
+
 = Drag and Drop Inline Form Builder =
-Create inline contact forms with Poptin. Once you use our form builder and create your contact form, use our shortcode and add the form anywhere on your website. When you create embedded forms with Poptin you can use our smart targeting and triggers options to maximize the conversion rate.
+Create inline contact forms with Poptin. Once you use our form builder and create your contact form, use our short code and add the form anywhere on your website. When you create embedded forms with Poptin you can use our smart targeting and triggers options to maximize the conversion rate.
 
 Using our powerful form builder you can create beautiful forms. Use our contact form templates or create your own form from scratch. Add elements that’ll increase your conversion rate like countdown timer, video, custom HTML, images, shapes, attention effect for your button and more. 
 
@@ -239,6 +241,9 @@ You can connect Poptin for free to your favorite email platform and CRM includin
 11. Design your own stunning mobile pop up
 
 == Changelog ==
+
+= 1.3.4 =
+Improved support flow
 
 = 1.3.3 =
 Improved responsiveness and more support options

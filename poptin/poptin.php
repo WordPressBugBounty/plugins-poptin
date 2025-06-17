@@ -3,7 +3,7 @@
 Plugin Name: Poptin
 Contributors: poptin, galdub, tomeraharon
 Description: Use Poptin to get more leads, sales, and email subscribers. Create targeted beautiful pop ups and forms in less than 2 minutes with ease.
-Version: 1.3.3
+Version: 1.3.4
 Author: Poptin
 Author URI: https://www.poptin.com
 Text Domain: poptin
@@ -18,7 +18,7 @@ if (!defined('ABSPATH')) {
     exit;
 }
 
-define('POPTIN_VERSION', '1.3.3');
+define('POPTIN_VERSION', '1.3.4');
 define('POPTIN_PATH', dirname(__FILE__));
 define('POPTIN_PATH_INCLUDES', dirname(__FILE__) . '/inc');
 define('POPTIN_FOLDER', basename(POPTIN_PATH));
@@ -55,9 +55,12 @@ class POPTIN_Plugin_Base
         add_action('admin_enqueue_scripts', array($this, 'poptin_add_admin_css'));
         // register admin pages for the plugin
         add_action('admin_menu', array($this, 'poptin_admin_pages_callback'));
+        add_action('admin_init', array($this, 'admin_init'));
 
         // Translation-ready
         add_action('plugins_loaded', array($this, 'poptin_add_textdomain'));
+
+        add_filter('plugin_action_links_'.plugin_basename(__FILE__), [$this, 'plugin_action_links']);
 
         $poptinidcheck = get_option('poptin_id', (isset($myOption_def) ? $myOption_def : false));
         if ($poptinidcheck) {
@@ -124,6 +127,34 @@ class POPTIN_Plugin_Base
 
         add_action('admin_footer', array($this, 'deactivate_modal'));
         add_action('wp_ajax_poptin_plugin_deactivate', array($this, 'poptin_plugin_deactivate'));
+    }
+
+    /**
+     * Scope:       Public
+     * Function:    admin_init
+     * Description: Handles initialization actions for the admin panel. Specifically checks if the current page is the
+     *              Poptin support page and redirects to the main Poptin page if applicable.
+     * Return:      void | Performs a redirect to the specified admin URL if the condition is met.
+     **/
+    public function admin_init() {
+        if(isset($_GET['page']) && $_GET['page'] == 'Poptin-support') {
+            wp_redirect(admin_url("admin.php?page=Poptin"));
+            exit;
+        }
+    }
+
+    /**
+     * Function:    plugin_action_links
+     * Description: Adds a custom support link to the array of plugin action links.
+     *              This method is generally used to provide quick access to support or documentation for the plugin.
+     *
+     * @param array $links Array of existing action links for the plugin.
+     *
+     * @return array Modified array of action links including the custom support link.
+     */
+    public function plugin_action_links($links) {
+        $links[] = '<a target="_blank" href="'.esc_url($this->poptin_support_link()).'">' . esc_html__( 'Need help?', 'chatway' ) . '</a>';
+        return $links;
     }
 
     /**
@@ -398,15 +429,29 @@ class POPTIN_Plugin_Base
     {
         if ('toplevel_page_Poptin' === $hook) {
             wp_enqueue_script('jquery');
-            wp_register_script('poptin-admin', plugins_url('assets/js/poptin-admin.js', __FILE__), array('jquery'), '1.0.6', true);
+            wp_register_script('poptin-admin', plugins_url('assets/js/poptin-admin.js', __FILE__), array('jquery'), POPTIN_VERSION, true);
             wp_enqueue_script('poptin-admin');
-            $settings = [
-                'after_registration_url' => admin_url("admin.php?page=Poptin&poptin_logmein=true&after_registration=wordpress")
-            ];
-            wp_localize_script('poptin-admin', 'poptin_settings', $settings);
-            wp_register_script('bootstrap-modal', plugins_url('assets/js/bootstrap.min.js', __FILE__), array('jquery'), '1.0', true);
+            wp_register_script('bootstrap-modal', plugins_url('assets/js/bootstrap.min.js', __FILE__), array('jquery'), POPTIN_VERSION, true);
             wp_enqueue_script('bootstrap-modal');
         }
+        wp_register_script('poptin-support', plugins_url('assets/js/poptin-support.js', __FILE__), array('jquery'), POPTIN_VERSION, true);
+        wp_enqueue_script('poptin-support');
+        $settings = [
+            'support_link' => $this->poptin_support_link(),
+            'after_registration_url' => admin_url("admin.php?page=Poptin&poptin_logmein=true&after_registration=wordpress")
+        ];
+        wp_localize_script('poptin-support', 'poptin_settings', $settings);
+    }
+
+
+    /**
+     * Scope:       Public
+     * Function:    poptin_support_link
+     * Description: Returns the URL for the Poptin plugin support page.
+     * Return:      String | URL of the Poptin plugin support page.
+     **/
+    public function poptin_support_link() {
+        return 'https://wordpress.org/support/plugin/poptin/';
     }
 
 
@@ -431,9 +476,9 @@ class POPTIN_Plugin_Base
     public function poptin_add_admin_css($hook)
     {
         if ('toplevel_page_Poptin' === $hook) {
-            wp_register_style('poptin-admin', plugins_url('assets/css/poptin-admin.css', __FILE__), array(), '1.1');
+            wp_register_style('poptin-admin', plugins_url('assets/css/poptin-admin.css', __FILE__), array(), POPTIN_VERSION);
             wp_enqueue_style('poptin-admin');
-            wp_register_style('bootstrap-modal-css', plugins_url('assets/css/bootstrap.min.css', __FILE__), array(), '1.0');
+            wp_register_style('bootstrap-modal-css', plugins_url('assets/css/bootstrap.min.css', __FILE__), array(), POPTIN_VERSION);
             wp_enqueue_style('bootstrap-modal-css');
         }
     }
@@ -447,7 +492,32 @@ class POPTIN_Plugin_Base
     public function poptin_admin_pages_callback()
     {
         //$this->check_if_poptin_is_connected();
-        add_menu_page(__("Poptin", 'ppbase'), __("Poptin", 'ppbase'), 'manage_options', 'Poptin', array($this, 'poptin_admin_view'), POPTIN_URL . '/assets/images/menu-icon.png');
+        add_menu_page(
+            __("Poptin", 'ppbase'),
+            __("Poptin", 'ppbase'),
+            'manage_options',
+            'Poptin',
+            array($this, 'poptin_admin_view'),
+            POPTIN_URL . '/assets/images/menu-icon.png'
+        );
+
+        add_submenu_page(
+            'Poptin',
+            esc_html__( "Settings", 'ppbase' ),
+            esc_html__( "Settings", 'ppbase' ),
+            'manage_options',
+            'Poptin',
+            [$this, 'poptin_admin_view']
+        );
+
+        add_submenu_page(
+            'Poptin',
+            esc_html__( "Support", 'ppbase' ),
+            esc_html__( "Support", 'ppbase' ),
+            'manage_options',
+            'Poptin-support',
+            [$this, 'screen']
+        );
     }
 
 
