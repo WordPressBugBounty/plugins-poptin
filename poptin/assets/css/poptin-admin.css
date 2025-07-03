@@ -317,7 +317,7 @@ input:focus {
     text-decoration: none;
 }
 
-.poptin button,
+.poptin button:not(.ps-widget__trigger-btn),
 .poptin a.cbutton {
     width: 100% !important;
     height: 48px !important;
@@ -340,7 +340,7 @@ input:focus {
     transition: all 400ms ease-in-out;
 }
 
-.poptin button:hover,
+.poptin button:not(.ps-widget__trigger-btn):hover,
 .poptin a.cbutton:hover {
     background: linear-gradient(0deg, rgba(24, 0, 138, 0.4), rgba(24, 0, 138, 0.4)), linear-gradient(180deg, #7761DF 0%, #5335DD 100%);
     box-shadow: 0px 7px 6px -4px rgba(119, 97, 223, 0.32), 0px 10px 16px rgba(119, 97, 223, 0.28), 0px 13px 28px 8px rgba(119, 97, 223, 0.28);
@@ -560,7 +560,7 @@ input:focus {
 
 .poptinWrap .customersReview .poptinCustomer img {
     width: 64px;
-    background: linear-gradient(319.09deg, rgba(119, 97, 223, 0.2) 6.53%, rgba(119, 97, 223, 0) 94.48%), url(image.png);
+    background: linear-gradient(319.09deg, rgba(119, 97, 223, 0.2) 6.53%, rgba(119, 97, 223, 0) 94.48%);
     box-shadow: 0px 3px 6px -4px rgba(54, 42, 109, 0.12), 0px 9px 28px 8px rgba(54, 42, 109, 0.05);
     filter: drop-shadow(0px 6px 16px rgba(54, 42, 109, 0.08));
     border-radius: 12px;
@@ -953,7 +953,7 @@ Start: Poptin Support Widget
     position: fixed;
     right: var(--page-spacing);
     bottom: var(--page-spacing);
-    z-index: var(--z-index);
+    z-index: 999;
 }
 
 .ps-widget__trigger-btn {
@@ -1065,9 +1065,57 @@ Start: Poptin Support Widget
 /* ---------------------------
 End: Poptin Support Widget
 ---------------------------- */
+
 body.mobile.modal-open #wpwrap {
     position: static;
 }
+
+/* ---------------------------
+Start: Poptin Dashboard reset and iframe
+---------------------------- */
+
+.poptin-dashboard {
+    position: relative;
+}
+
+.poptin-dashboard-iframe {
+    display: block;
+    height: calc(100vh - 32px);
+    position: fixed;
+    top: 32px;
+    left: 160px;
+    width: calc(100% - 160px);
+    border: 0;
+    z-index:1000;
+    background:#ffffff;
+}
+
+/* Page-specific styling for dashboard pages */
+.toplevel_page_Poptin:has(.poptin-dashboard) #wpbody-content > *:not(.poptin-dashboard) {
+    display: none;
+}
+
+.toplevel_page_Poptin:has(.poptin-dashboard) #wpcontent,
+.toplevel_page_poptin-dashboard #wpcontent {
+    padding: 0;
+}
+
+.toplevel_page_poptin-dashboard #wpbody-content {
+    background-color: #f6f6f8;
+    padding-bottom: 0;
+    position: relative;
+}
+
+/* Hide scrollbar on dashboard pages */
+.toplevel_page_Poptin:has(.poptin-dashboard)::-webkit-scrollbar,
+.toplevel_page_poptin-dashboard:has(.poptin-dashboard)::-webkit-scrollbar {
+    width: 0;
+}
+
+/* ---------------------------
+End: Poptin Dashboard reset and iframe
+---------------------------- */
+
 /* ---------------------------
 Start: Responsive
 ---------------------------- */
@@ -1214,6 +1262,20 @@ Start: Responsive
 
     .poptinContentBox .poptinLogged .poptinView .footer .important-note {
         width: calc(100% - 30px);
+    }
+}
+
+@media (max-width: 960px) {
+    .poptin-dashboard-iframe {
+        left: 36px;
+        width: calc(100% - 36px);
+    }
+}
+
+@media (max-width: 782px) {
+    .poptin-dashboard-iframe {
+        left: 0;
+        width: 100%;
     }
 }
 

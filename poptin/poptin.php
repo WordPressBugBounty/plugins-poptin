@@ -3,7 +3,7 @@
 Plugin Name: Poptin
 Contributors: poptin, galdub, tomeraharon
 Description: Use Poptin to get more leads, sales, and email subscribers. Create targeted beautiful pop ups and forms in less than 2 minutes with ease.
-Version: 1.3.4
+Version: 1.3.5
 Author: Poptin
 Author URI: https://www.poptin.com
 Text Domain: poptin
@@ -18,7 +18,7 @@ if (!defined('ABSPATH')) {
     exit;
 }
 
-define('POPTIN_VERSION', '1.3.4');
+define('POPTIN_VERSION', '1.3.5');
 define('POPTIN_PATH', dirname(__FILE__));
 define('POPTIN_PATH_INCLUDES', dirname(__FILE__) . '/inc');
 define('POPTIN_FOLDER', basename(POPTIN_PATH));
@@ -32,14 +32,16 @@ define('POPTIN_MARKETPLACE_EMAIL_ID', get_option('poptin_marketplace_email_id'))
 define('POPTIN_FRONT_SITE', 'https://www.poptin.com');
 
 define('POPTIN_MARKETPLACE', 'Wrdprs');
-define('POPTIN_MARKETPLACE_LOGIN_URL', 'https://app.popt.in/api/marketplace/auth');
-define('POPTIN_MARKETPLACE_REGISTER_URL', 'https://app.popt.in/api/marketplace/register');
+define('POPTIN_APP_BASE_URL', 'https://app.popt.in/');
+define('POPTIN_MARKETPLACE_LOGIN_URL', POPTIN_APP_BASE_URL . 'api/marketplace/auth');
+define('POPTIN_MARKETPLACE_REGISTER_URL', POPTIN_APP_BASE_URL . 'api/marketplace/register');
 define('POPTIN_CACERT_PATH', POPTIN_PATH . "/assets/ca-cert/cacert-2017-06-07.pem");
 
-
 if (is_admin()) {
-    include_once "class-affiliate.php";
+    include_once "includes/class-affiliate.php";
+    include_once "includes/poptin-functions.php";
 }
+
 class POPTIN_Plugin_Base
 {
     public function __construct()
@@ -82,7 +84,8 @@ class POPTIN_Plugin_Base
         add_action('wp_ajax_poptin_logmein', array($this, 'poptin_markplace_login'));
         add_action('wp_ajax_delete-id', array($this, 'delete_poptin_id'));
         add_action('wp_ajax_add-id', array($this, 'add_poptin_id'));
-
+        add_action('wp_ajax_poptin_logout', array($this, 'handle_logout_ajax'));
+        
         /**
          *
          * Admin Initialization calls registration
@@ -119,6 +122,9 @@ class POPTIN_Plugin_Base
             }
         }
 
+        // Add AJAX handlers
+        add_action('wp_ajax_poptin_logout', array($this, 'handle_logout_ajax'));
+
         /**
          * Clean Up Of the URL
          * Not sure why is this here
@@ -130,6 +136,36 @@ class POPTIN_Plugin_Base
     }
 
     /**
+     * Helper function to check if user is logged in to Poptin
+     */
+    private function poptin_is_logged_in() {
+        $poptin_id = get_option('poptin_id', '');
+        return !empty($poptin_id) && strlen($poptin_id) == 13;
+    }
+
+    /**
+     * Helper function to check if user has full registration (email + token)
+     */
+    private function poptin_has_full_registration() {
+        $token = get_option('poptin_marketplace_token', '');
+        $user_id = get_option('poptin_user_id', '');
+        return !empty($token) && !empty($user_id);
+    }
+
+    /**
+     * Get the appropriate dashboard URL based on login method
+     */
+    private function poptin_get_dashboard_url() {
+        if ($this->poptin_has_full_registration()) {
+            // User registered via email - show iframe dashboard
+            return admin_url("admin.php?page=poptin-dashboard");
+        } else {
+            // User entered ID manually - go to external dashboard
+            return POPTIN_APP_BASE_URL;
+        }
+    }
+
+    /**
      * Scope:       Public
      * Function:    admin_init
      * Description: Handles initialization actions for the admin panel. Specifically checks if the current page is the
@@ -138,7 +174,7 @@ class POPTIN_Plugin_Base
      **/
     public function admin_init() {
         if(isset($_GET['page']) && $_GET['page'] == 'Poptin-support') {
-            wp_redirect(admin_url("admin.php?page=Poptin"));
+            wp_redirect(admin_url("admin.php?page=poptin"));
             exit;
         }
     }
@@ -153,7 +189,7 @@ class POPTIN_Plugin_Base
      * @return array Modified array of action links including the custom support link.
      */
     public function plugin_action_links($links) {
-        $links[] = '<a target="_blank" href="'.esc_url($this->poptin_support_link()).'">' . esc_html__( 'Need help?', 'chatway' ) . '</a>';
+        $links[] = '<a target="_blank" href="'.esc_url($this->poptin_support_link()).'">' . esc_html__( 'Need help?', 'ppbase' ) . '</a>';
         return $links;
     }
 
@@ -401,10 +437,10 @@ class POPTIN_Plugin_Base
                 header("Location: " . $login_url);
                 exit(0);
             } else {
-                exit(wp_redirect(admin_url("admin.php?page=Poptin")));
+                exit(wp_redirect(admin_url("admin.php?page=poptin")));
             }
         }
-        exit(wp_redirect(admin_url("admin.php?page=Poptin")));
+        exit(wp_redirect(admin_url("admin.php?page=poptin")));
     }
 
 
@@ -427,20 +463,52 @@ class POPTIN_Plugin_Base
      */
     public function poptin_add_admin_javascript($hook)
     {
-        if ('toplevel_page_Poptin' === $hook) {
+        if (strpos($hook, 'poptin') !== false) {
             wp_enqueue_script('jquery');
             wp_register_script('poptin-admin', plugins_url('assets/js/poptin-admin.js', __FILE__), array('jquery'), POPTIN_VERSION, true);
             wp_enqueue_script('poptin-admin');
+            
+            // Determine auto-login URL for full registration users
+            $auto_login_url = POPTIN_APP_BASE_URL;
+            if ($this->poptin_has_full_registration()) {
+                // Try to get the login URL from the marketplace API
+                $token = get_option('poptin_marketplace_token', '');
+                $user_id = get_option('poptin_user_id', '');
+                
+                if (!empty($token) && !empty($user_id)) {
+                    $curl_URL = POPTIN_MARKETPLACE_LOGIN_URL;
+                    $curl_post_array = array(
+                        'token' => $token,
+                        'user_id' => $user_id
+                    );
+                    
+                    $curl_options = $this->generate_curl_options($curl_URL, $curl_post_array);
+                    $curl = curl_init();
+                    curl_setopt_array($curl, $curl_options);
+                    $response = curl_exec($curl);
+                    $err = curl_error($curl);
+                    curl_close($curl);
+                    
+                    if (!$err && $response) {
+                        $response_array = json_decode($response);
+                        if (isset($response_array->success) && $response_array->success && isset($response_array->login_url)) {
+                            $auto_login_url = $response_array->login_url;
+                        }
+                    }
+                }
+            }
+            
+            $settings = [
+                'after_registration_url' => admin_url("admin.php?page=poptin-dashboard"),
+                'poptin_app_base_url' => POPTIN_APP_BASE_URL,
+                'support_link' => $this->poptin_support_link(),
+                'has_marketplace_token' => $this->poptin_has_full_registration(),
+                'auto_login_url' => $auto_login_url
+            ];
+            wp_localize_script('poptin-admin', 'poptin_settings', $settings);
             wp_register_script('bootstrap-modal', plugins_url('assets/js/bootstrap.min.js', __FILE__), array('jquery'), POPTIN_VERSION, true);
             wp_enqueue_script('bootstrap-modal');
         }
-        wp_register_script('poptin-support', plugins_url('assets/js/poptin-support.js', __FILE__), array('jquery'), POPTIN_VERSION, true);
-        wp_enqueue_script('poptin-support');
-        $settings = [
-            'support_link' => $this->poptin_support_link(),
-            'after_registration_url' => admin_url("admin.php?page=Poptin&poptin_logmein=true&after_registration=wordpress")
-        ];
-        wp_localize_script('poptin-support', 'poptin_settings', $settings);
     }
 
 
@@ -464,7 +532,16 @@ class POPTIN_Plugin_Base
      */
     public function poptin_add_script_frontend()
     {
-        echo "<script id='pixel-script-poptin' src='https://cdn.popt.in/pixel.js?id=" . POPTIN_ID . "' async='true'></script> ";
+        // Determine script URL based on POPTIN_APP_BASE_URL
+        if (POPTIN_APP_BASE_URL === 'https://app.popt.in/') {
+            $script_url = 'https://cdn.popt.in/pixel.js';
+        } else {
+            // Remove trailing slash if present and add js/pixel.js
+            $base_url = rtrim(POPTIN_APP_BASE_URL, '/');
+            $script_url = $base_url . '/js/pixel.js';
+        }
+        
+        echo "<script id='pixel-script-poptin' src='" . esc_url($script_url) . "?id=" . POPTIN_ID . "' async='true'></script> ";
     }
 
     /**
@@ -475,7 +552,7 @@ class POPTIN_Plugin_Base
      */
     public function poptin_add_admin_css($hook)
     {
-        if ('toplevel_page_Poptin' === $hook) {
+        if (strpos($hook, 'poptin') !== false) {
             wp_register_style('poptin-admin', plugins_url('assets/css/poptin-admin.css', __FILE__), array(), POPTIN_VERSION);
             wp_enqueue_style('poptin-admin');
             wp_register_style('bootstrap-modal-css', plugins_url('assets/css/bootstrap.min.css', __FILE__), array(), POPTIN_VERSION);
@@ -491,47 +568,141 @@ class POPTIN_Plugin_Base
      */
     public function poptin_admin_pages_callback()
     {
-        //$this->check_if_poptin_is_connected();
+        // Main menu page
         add_menu_page(
-            __("Poptin", 'ppbase'),
-            __("Poptin", 'ppbase'),
-            'manage_options',
-            'Poptin',
-            array($this, 'poptin_admin_view'),
+            __("Poptin", 'ppbase'), 
+            __("Poptin", 'ppbase'), 
+            'manage_options', 
+            'poptin', 
+            array($this, 'poptin_admin_view'), 
             POPTIN_URL . '/assets/images/menu-icon.png'
         );
+        
+        // Only show these additional options if user is logged in
+        if ($this->poptin_is_logged_in()) {
+            
+            // Smart Dashboard submenu - routes based on login method
+            add_submenu_page(
+                'poptin',
+                __("Dashboard", 'ppbase'), 
+                __("Dashboard", 'ppbase'),
+                'manage_options',
+                'poptin', // Same as main page, but we'll handle routing in the view
+                array($this, 'poptin_smart_dashboard_view')
+            );
+    
+            // Hidden iframe dashboard page (for internal routing only)
+            add_submenu_page(
+                null, // Hidden from menu by setting parent to null
+                __("Poptin Dashboard", 'ppbase'), 
+                __("Iframe Dashboard", 'ppbase'),
+                'manage_options',
+                'poptin-dashboard',
+                array($this, 'poptin_dashboard_view')
+            );
 
-        add_submenu_page(
-            'Poptin',
-            esc_html__( "Settings", 'ppbase' ),
-            esc_html__( "Settings", 'ppbase' ),
-            'manage_options',
-            'Poptin',
-            [$this, 'poptin_admin_view']
-        );
+            add_submenu_page(
+                'poptin',
+                __("Poptin Full-Screen View", 'ppbase'), 
+                __("Full-Screen View", 'ppbase'),
+                'manage_options',
+                'poptin-full-screen',
+                array($this, 'poptin_fullscreen_view')
+            );
 
-        add_submenu_page(
-            'Poptin',
-            esc_html__( "Support", 'ppbase' ),
-            esc_html__( "Support", 'ppbase' ),
-            'manage_options',
-            'Poptin-support',
-            [$this, 'screen']
-        );
+            add_submenu_page(
+                'poptin',
+                esc_html__( "Support", 'ppbase'),
+                esc_html__( "Support", 'ppbase'),
+                'manage_options',
+                'poptin-support',
+                [$this, 'screen']
+            );
+            
+            add_submenu_page(
+                'poptin',
+                __("Poptin Logout", 'ppbase'), 
+                __("Log Out", 'ppbase'),
+                'manage_options',
+                'poptin-logout',
+                array($this, 'poptin_logout_view')
+            );
+        }
     }
 
+    /**
+     * Scope:       Public
+     * Function:    poptin_smart_dashboard_view
+     * Description: Smart dashboard that routes based on user's login method
+     * Parameters:  None
+     */
+    public function poptin_smart_dashboard_view() {
+        if (!$this->poptin_is_logged_in()) {
+            // User not logged in, show login/registration form
+            $this->poptin_admin_view();
+            return;
+        }
+
+        if ($this->poptin_has_full_registration()) {
+            // User has full registration (email + token), show iframe dashboard
+            $this->poptin_dashboard_view();
+        } else {
+            // User has manual ID only, show success page with external dashboard link
+            $this->poptin_admin_view();
+        }
+    }
 
     /**
      * Scope:       Public
      * Function:    poptin_admin_view
-     * Description: The URL link is added to render the view setup as per the function
+     * Description: The main admin view - shows login form or success page
      * Parameters:  None
      */
-    public function poptin_admin_view()
-    {
-        include_once(POPTIN_PATH . '/views/poptin_admin_view.php');
+    public function poptin_admin_view() {
+        // Use the original admin view file which handles both states
+        $admin_view_file = POPTIN_PATH . '/views/poptin_admin_view.php';
+        
+        if (file_exists($admin_view_file)) {
+            include_once($admin_view_file);
+        }
+        
+        // Include modals for logout functionality
+        $modals_file = POPTIN_PATH . '/views/poptin_modals.php';
+        if (file_exists($modals_file)) {
+            include_once($modals_file);
+        }
     }
 
+    /**
+     * Scope:       Public
+     * Function:    poptin_dashboard_view
+     * Description: Shows the iframe dashboard (only for full registration users)
+     * Parameters:  None
+     */
+    public function poptin_dashboard_view() {
+        if (!$this->poptin_is_logged_in()) {
+            wp_redirect(admin_url('admin.php?page=poptin'));
+            exit;
+        }
+
+        if (!$this->poptin_has_full_registration()) {
+            // User only has ID, redirect to external dashboard
+            echo '<script>window.open("' . POPTIN_APP_BASE_URL . '", "_blank"); window.location.href = "' . admin_url('admin.php?page=poptin') . '";</script>';
+            exit;
+        }
+
+        // Show iframe dashboard
+        $dashboard_file = POPTIN_PATH . '/views/poptin_dashboard.php';
+        if (file_exists($dashboard_file)) {
+            include_once($dashboard_file);
+        }
+
+        // Include modals for logout functionality
+        $modals_file = POPTIN_PATH . '/views/poptin_modals.php';
+        if (file_exists($modals_file)) {
+            include_once($modals_file);
+        }
+    }
 
     /**
      * Scope:       Public
@@ -651,7 +822,7 @@ class POPTIN_Plugin_Base
         $response_return_array = array();
         if ($err) {
             $response_return_array['success'] = false;
-            $response_return_array['message'] = "Internal error occurred. Please try again later.";
+            $response_return_array['message'] = $err;
             echo json_encode($response_return_array);
             exit(0);
         } else {
@@ -661,7 +832,6 @@ class POPTIN_Plugin_Base
                 $response_return_array['message'] = "Registration successful";
                 $response_return_array['js_client_id'] = $response_array->client_id;
                 $response_return_array['user_token'] = $response_array->token;
-
 
                 /**
                  * On Success
@@ -705,6 +875,54 @@ class POPTIN_Plugin_Base
             CURLOPT_CAINFO => POPTIN_CACERT_PATH
         );
         return $curl_options_array;
+    }
+
+    public function poptin_fullscreen_view() {
+        // Instead of redirecting, we'll use JavaScript to open in new tab
+        ?>
+        <script type="text/javascript">
+            window.open('<?php echo esc_url($this->poptin_get_dashboard_url()); ?>', '_blank');
+            // Redirect back to dashboard after opening new tab
+            window.location.href = '<?php echo admin_url("admin.php?page=poptin"); ?>';
+        </script>
+        <?php
+        exit;
+    }
+
+    public function poptin_logout_view() {
+        // Clear Poptin data (similar to your existing delete_poptin_id method)
+        update_option('poptin_id', '');
+        update_option('poptin_marketplace_token', '');
+        update_option('poptin_marketplace_email_id', '');
+        update_option('poptin_user_id', '');
+        poptin_clear_all_caches();
+        
+        // Redirect back to main page
+        wp_redirect(admin_url('admin.php?page=poptin'));
+        exit;
+    }
+
+    public function handle_logout_ajax() {
+        // Check if user has permission
+        if (!current_user_can('manage_options')) {
+            wp_send_json_error('Insufficient permissions');
+            return;
+        }
+        
+        // Verify nonce
+        if (!isset($_POST['nonce']) || !wp_verify_nonce($_POST['nonce'], 'poptin_logout_nonce')) {
+            wp_send_json_error('Security check failed');
+            return;
+        }
+        
+        // Clear Poptin data (same as your existing delete_poptin_id method)
+        update_option('poptin_id', '');
+        update_option('poptin_marketplace_token', '');
+        update_option('poptin_marketplace_email_id', '');
+        update_option('poptin_user_id', '');
+        poptin_clear_all_caches();
+        
+        wp_send_json_success('Logged out successfully');
     }
 }
 
@@ -768,7 +986,7 @@ function poptin_plugin_redirect()
 {
     if (!defined("DOING_AJAX") && get_option('poptin_plugin_redirection', false)) {
         delete_option('poptin_plugin_redirection');
-        exit(wp_redirect(admin_url("admin.php?page=Poptin")));
+        exit(wp_redirect(admin_url("admin.php?page=poptin")));
     }
 }
 
@@ -910,4 +1128,3 @@ function poptin_clear_all_caches()
     }
 }
 $poptinBase = new POPTIN_Plugin_Base();
-?>
