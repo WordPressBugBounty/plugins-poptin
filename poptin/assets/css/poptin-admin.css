@@ -1380,3 +1380,50 @@ Start: Responsive
 /* ---------------------------
 End: Responsive
 ---------------------------- */
+
+/* Iframe Overlay Styles */
+.poptin-iframe-overlay {
+    position: fixed;
+    top: 32px; /* WordPress admin header height */
+    left: 160px; /* WordPress admin sidebar width */
+    width: calc(100vw - 160px); /* Full width minus sidebar */
+    height: calc(100vh - 32px); /* Full height minus header */
+    background: #fff;
+    z-index: 0;
+    overflow: hidden;
+}
+
+.poptin-iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+    margin: 0;
+    padding: 0;
+}
+
+/* Hide iframe for Safari and Brave browsers */
+.poptin-iframe-hidden .poptin-iframe-overlay {
+    display: none !important;
+}
+
+/* Responsive adjustments for iframe overlay */
+@media (max-width: 960px) {
+    .poptin-iframe-overlay {
+        left: 36px; /* Collapsed sidebar width */
+        width: calc(100vw - 36px);
+    }
+}
+
+@media (max-width: 768px) {
+    .poptin-iframe-overlay {
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+    }
+    
+    .poptin-iframe {
+        width: 100%;
+        height: 100%;
+    }
+}

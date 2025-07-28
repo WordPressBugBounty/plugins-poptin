@@ -10,20 +10,9 @@ if (!current_user_can('manage_options')) {
 }
 
 $poptinidcheck = get_option('poptin_id', (isset($myOption_def) ? $myOption_def : false));
-
 $poptin_marketplace_token_check = get_option('poptin_marketplace_token', (isset($myOption_def) ? $myOption_def : false));
 $poptin_marketplace_email_id_check = get_option('poptin_marketplace_email_id', (isset($myOption_def) ? $myOption_def : false));
-
-// Determine the correct dashboard URL based on login method
-if ($poptin_marketplace_token_check && $poptin_marketplace_email_id_check) {
-    // User registered via email - show iframe dashboard
-    $go_to_dashboard_url = admin_url("admin.php?page=poptin-dashboard");
-    $dashboard_target = ""; // Same window for iframe
-} else {
-    // User entered ID manually - go to external dashboard
-    $go_to_dashboard_url = POPTIN_APP_BASE_URL;
-    $dashboard_target = "_blank"; // New tab for external
-}
+$go_to_dashboard_url = POPTIN_APP_BASE_URL;
 
 /**
  * We need to pre-fill the email ID of the WP Admin site.
@@ -33,19 +22,13 @@ if ($poptin_marketplace_token_check && $poptin_marketplace_email_id_check) {
 $admin_email = get_bloginfo('admin_email');
 
 ?>
-<script type="text/javascript">
-    <?php if ($poptin_marketplace_token_check && $poptin_marketplace_email_id_check) { ?>
-        var do_auto_login = false;
-    <?php } else { ?>
-        var do_auto_login = false;
-    <?php } ?>
-</script>
+
 <!-- Main wrapper -->
 <div class="poptin-overlay"></div>
 
 <div class="poptin">
 
-    <div class="wrap">
+    <div class="wrap poptin-wrap">
 
         <h1></h1>
         <div class="poptinWrap d-flex">
@@ -61,14 +44,15 @@ $admin_email = get_bloginfo('admin_email');
                             <?php _e(" Poptin is installed on your website ", 'ppbase'); ?>
                         </h4>
 
-                        <!-- Use the dynamically determined URL and target -->
+                        <!-- Use the dynamically determined URL - JavaScript will handle target -->
                         <a class="cbutton dashboard-link goto_dashboard_button_pp_updatable" 
-                           href="<?php echo esc_url($go_to_dashboard_url) ?>"
-                           <?php if ($dashboard_target) echo 'target="' . esc_attr($dashboard_target) . '"'; ?>>
-                            Go to your Dashboard <img src="<?php echo POPTIN_URL . '/assets/images/polygon.svg' ?>" alt="">
+                           href="<?php echo esc_url($go_to_dashboard_url) ?>">
+                           <?php _e("Go to your Dashboard", "ppbase"); ?> <img src="<?php echo POPTIN_URL . '/assets/images/polygon.svg' ?>" alt="">
                         </a>
                         <div class="other-links d-flex justify-center">
-                            <span><?php _e("Click on the button to create and manage your poptins", "ppbase"); ?> </span>
+                            <span>
+                                <?php _e("Click on the button to create and manage your poptins", "ppbase"); ?>
+                            </span>
                         </div>
 
                         <div class="footer">
@@ -370,3 +354,14 @@ $admin_email = get_bloginfo('admin_email');
     </div>
 
 </div>
+
+<!-- Iframe overlay for full registration users -->
+<?php if ($poptin_marketplace_token_check && $poptin_marketplace_email_id_check): ?>
+<div id="poptin-iframe-overlay" class="poptin-iframe-overlay">
+    <iframe id="poptin-iframe" 
+            class="poptin-iframe" 
+            allow="clipboard-read; clipboard-write"
+            src="">
+    </iframe>
+</div>
+<?php endif; ?>

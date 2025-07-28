@@ -3,7 +3,7 @@ Contributors: poptin, galdub, tomeraharon
 Tags: pop ups, popups, exit intent, email pop up, popup
 Requires at least: 3.1
 Tested up to: 6.8
-Stable tag: 1.3.5
+Stable tag: 1.3.6
 Plugin URI: https://www.poptin.com
 License: GPLv3
 
@@ -62,7 +62,7 @@ Our exit intent trigger is included in the free plan. Create any type of exit po
 
 * A/B testing - what does work better, video popup or popup form? Test one popup or form against the other and improve conversion rate optimization
 
-* All types of fields - besides the regular name, email, and phone fields, add number fields, textarea, website field, date, select, radio buttons, checkboxes, and hidden field. Use the new fields to make your forms better. You can also use it to gather feedback and to create surveys
+* All types of fields - besides the regular name, email, and phone fields, add number fields, textarea field, website field, date, select, radio buttons, checkboxes, and hidden field. Use the new fields to make your forms better. You can also use it to gather feedback and to create surveys
 
 * Gamified popups - create beautiful gamified pop ups and get more sales. Create a spin to win pop up, scratch card, and pick a gift pop ups. Highly recommended for WooCommerce stores
 
@@ -241,6 +241,9 @@ You can connect Poptin for free to your favorite email platform and CRM includin
 11. Design your own stunning mobile pop up
 
 == Changelog ==
+
+= 1.3.6 =
+Safari and Brave browser compatibility during Poptin installation
 
 = 1.3.5 =
 Better installation flow - create popups and forms directly from your WordPress admin panel

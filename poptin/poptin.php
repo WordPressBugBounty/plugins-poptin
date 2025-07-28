@@ -3,7 +3,7 @@
 Plugin Name: Poptin
 Contributors: poptin, galdub, tomeraharon
 Description: Use Poptin to get more leads, sales, and email subscribers. Create targeted beautiful pop ups and forms in less than 2 minutes with ease.
-Version: 1.3.5
+Version: 1.3.6
 Author: Poptin
 Author URI: https://www.poptin.com
 Text Domain: poptin
@@ -18,7 +18,7 @@ if (!defined('ABSPATH')) {
     exit;
 }
 
-define('POPTIN_VERSION', '1.3.5');
+define('POPTIN_VERSION', '1.3.6');
 define('POPTIN_PATH', dirname(__FILE__));
 define('POPTIN_PATH_INCLUDES', dirname(__FILE__) . '/inc');
 define('POPTIN_FOLDER', basename(POPTIN_PATH));
@@ -153,16 +153,13 @@ class POPTIN_Plugin_Base
     }
 
     /**
-     * Get the appropriate dashboard URL based on login method
+     * Get the iframe URL for full registration users
      */
-    private function poptin_get_dashboard_url() {
-        if ($this->poptin_has_full_registration()) {
-            // User registered via email - show iframe dashboard
-            return admin_url("admin.php?page=poptin-dashboard");
-        } else {
-            // User entered ID manually - go to external dashboard
-            return POPTIN_APP_BASE_URL;
+    private function get_iframe_url() {
+        if (!function_exists('poptin_get_iframe_url')) {
+            include_once POPTIN_PATH . '/includes/poptin-functions.php';
         }
+        return poptin_get_iframe_url();
     }
 
     /**
@@ -499,11 +496,12 @@ class POPTIN_Plugin_Base
             }
             
             $settings = [
-                'after_registration_url' => admin_url("admin.php?page=poptin-dashboard"),
+                'after_registration_url' => admin_url("admin.php?page=poptin"),
                 'poptin_app_base_url' => POPTIN_APP_BASE_URL,
                 'support_link' => $this->poptin_support_link(),
                 'has_marketplace_token' => $this->poptin_has_full_registration(),
-                'auto_login_url' => $auto_login_url
+                'auto_login_url' => $auto_login_url,
+                'iframe_url' => $this->poptin_has_full_registration() ? $this->get_iframe_url() : ''
             ];
             wp_localize_script('poptin-admin', 'poptin_settings', $settings);
             wp_register_script('bootstrap-modal', plugins_url('assets/js/bootstrap.min.js', __FILE__), array('jquery'), POPTIN_VERSION, true);
@@ -581,24 +579,14 @@ class POPTIN_Plugin_Base
         // Only show these additional options if user is logged in
         if ($this->poptin_is_logged_in()) {
             
-            // Smart Dashboard submenu - routes based on login method
+            // Dashboard submenu - now handled by main page with iframe overlay
             add_submenu_page(
                 'poptin',
                 __("Dashboard", 'ppbase'), 
                 __("Dashboard", 'ppbase'),
                 'manage_options',
-                'poptin', // Same as main page, but we'll handle routing in the view
-                array($this, 'poptin_smart_dashboard_view')
-            );
-    
-            // Hidden iframe dashboard page (for internal routing only)
-            add_submenu_page(
-                null, // Hidden from menu by setting parent to null
-                __("Poptin Dashboard", 'ppbase'), 
-                __("Iframe Dashboard", 'ppbase'),
-                'manage_options',
-                'poptin-dashboard',
-                array($this, 'poptin_dashboard_view')
+                'poptin', // Same as main page
+                array($this, 'poptin_admin_view')
             );
 
             add_submenu_page(
@@ -632,30 +620,8 @@ class POPTIN_Plugin_Base
 
     /**
      * Scope:       Public
-     * Function:    poptin_smart_dashboard_view
-     * Description: Smart dashboard that routes based on user's login method
-     * Parameters:  None
-     */
-    public function poptin_smart_dashboard_view() {
-        if (!$this->poptin_is_logged_in()) {
-            // User not logged in, show login/registration form
-            $this->poptin_admin_view();
-            return;
-        }
-
-        if ($this->poptin_has_full_registration()) {
-            // User has full registration (email + token), show iframe dashboard
-            $this->poptin_dashboard_view();
-        } else {
-            // User has manual ID only, show success page with external dashboard link
-            $this->poptin_admin_view();
-        }
-    }
-
-    /**
-     * Scope:       Public
      * Function:    poptin_admin_view
-     * Description: The main admin view - shows login form or success page
+     * Description: The main admin view - shows login form or success page with iframe overlay
      * Parameters:  None
      */
     public function poptin_admin_view() {
@@ -666,37 +632,6 @@ class POPTIN_Plugin_Base
             include_once($admin_view_file);
         }
         
-        // Include modals for logout functionality
-        $modals_file = POPTIN_PATH . '/views/poptin_modals.php';
-        if (file_exists($modals_file)) {
-            include_once($modals_file);
-        }
-    }
-
-    /**
-     * Scope:       Public
-     * Function:    poptin_dashboard_view
-     * Description: Shows the iframe dashboard (only for full registration users)
-     * Parameters:  None
-     */
-    public function poptin_dashboard_view() {
-        if (!$this->poptin_is_logged_in()) {
-            wp_redirect(admin_url('admin.php?page=poptin'));
-            exit;
-        }
-
-        if (!$this->poptin_has_full_registration()) {
-            // User only has ID, redirect to external dashboard
-            echo '<script>window.open("' . POPTIN_APP_BASE_URL . '", "_blank"); window.location.href = "' . admin_url('admin.php?page=poptin') . '";</script>';
-            exit;
-        }
-
-        // Show iframe dashboard
-        $dashboard_file = POPTIN_PATH . '/views/poptin_dashboard.php';
-        if (file_exists($dashboard_file)) {
-            include_once($dashboard_file);
-        }
-
         // Include modals for logout functionality
         $modals_file = POPTIN_PATH . '/views/poptin_modals.php';
         if (file_exists($modals_file)) {
@@ -881,8 +816,8 @@ class POPTIN_Plugin_Base
         // Instead of redirecting, we'll use JavaScript to open in new tab
         ?>
         <script type="text/javascript">
-            window.open('<?php echo esc_url($this->poptin_get_dashboard_url()); ?>', '_blank');
-            // Redirect back to dashboard after opening new tab
+            window.open('<?php echo esc_url(POPTIN_APP_BASE_URL); ?>', '_blank');
+            // Redirect back to main page after opening new tab
             window.location.href = '<?php echo admin_url("admin.php?page=poptin"); ?>';
         </script>
         <?php

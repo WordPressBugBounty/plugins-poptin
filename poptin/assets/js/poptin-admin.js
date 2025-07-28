@@ -3,6 +3,62 @@ jQuery(document).ready(function ($) {
 	// Use the POPTIN_APP_BASE_URL from PHP
 	var POPTIN_APP_BASE_URL = poptin_settings.poptin_app_base_url;
 
+	// Browser detection function
+	function detectProblematicBrowser() {
+		var userAgent = navigator.userAgent;
+		
+		// Detect Safari (but not Chrome which also contains Safari in user agent)
+		var isSafari = /Safari/.test(userAgent) && !/Chrome/.test(userAgent);
+		
+		// Detect Brave (Brave has a specific navigator.brave property)
+		var isBrave = false;
+		if (navigator.brave && navigator.brave.isBrave && navigator.brave.isBrave()) {
+			isBrave = true;
+		}
+		
+		// Also check for Brave in user agent string as fallback
+		if (!isBrave && /Brave/.test(userAgent)) {
+			isBrave = true;
+		}
+		
+		return isSafari || isBrave;
+	}
+
+	// Handle iframe overlay for logged-in users
+	function initIframeOverlay() {
+		var $overlay = $('#poptin-iframe-overlay');
+		var $dashboardButton = $('.goto_dashboard_button_pp_updatable');
+		
+		if ($overlay.length && $dashboardButton.length) {
+			// Check if user has full registration (iframe should be available)
+			var hasFullRegistration = poptin_settings.has_marketplace_token;
+			
+			if (hasFullRegistration) {
+				// Check for problematic browsers
+				var isProblematicBrowser = detectProblematicBrowser();
+				
+				if (isProblematicBrowser) {
+					// Hide iframe overlay for Safari/Brave
+					$('body').addClass('poptin-iframe-hidden');
+					
+					// Update button to open in new tab
+					$dashboardButton.attr('target', '_blank');
+					$dashboardButton.attr('href', poptin_settings.iframe_url || poptin_settings.auto_login_url);
+				} else {
+					// Set iframe src
+					var iframeUrl = poptin_settings.iframe_url || poptin_settings.auto_login_url;
+					$('#poptin-iframe').attr('src', iframeUrl);
+					
+					// Show iframe overlay immediately for compatible browsers
+					$overlay.show();
+					
+					// Hide the poptin dashboard when iframe is visible
+					$('.poptin .poptin-wrap, .ps-widget, #wpfooter').hide();
+				}
+			}
+		}
+	}
+
 	// Multiple selectors to catch the logout link
 	var logoutSelectors = [
 		'.pplogout',
@@ -132,6 +188,12 @@ jQuery(document).ready(function ($) {
 			$(this).hide();
 		}
 	});
+
+	// ==============================================
+	// IFRAME OVERLAY INITIALIZATION
+	// ==============================================
+	// Initialize iframe overlay for logged-in users
+	initIframeOverlay();
 
 	// ==============================================
 	// SUPPORT LINK HANDLER - Open in new tab like Full Screen
