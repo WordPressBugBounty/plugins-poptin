@@ -15,7 +15,7 @@ License: GPLv3
 
 <a href="https://help.poptin.com/?utm_source=wordpressorg" target="_blank" title="Support">Support</a> | <a href="https://www.poptin.com/gallery/?utm_source=wordpressorg" target="_blank" title="Poptin.com Demo">Demo</a> | <a href="https://www.poptin.com/pricing/?utm_source=wordpressorg" target="_blank" title="Poptin Pricing">Upgrade</a> | <a href="https://app.popt.in/register/?utm_source=wordpressorg" target="_blank" title="Sign Up to Poptin"><strong>Sign Up for Free ⭐</strong></a>
 
-<strong>Create beautiful popups, contact forms, optins, lightbox pop ups, notification bar, and forms in less than 2 minutes. Use exit intent popup & advanced targeting rules to convert more visitors into leads, subscribers, and sales.</strong>
+<strong>Create beautiful email popups, sms pop ups, optins, lightbox pop ups, notification bar, and contact forms in less than 2 minutes. Use exit intent popup & advanced targeting rules to convert more visitors into leads, subscribers, and sales.</strong>
 
 <a href="https://app.popt.in/register?utm_source=wordpress" target="_blank" title="Create unlimited free popups and forms now"><strong>Create your free popups and forms now!</strong></a>
 
@@ -31,10 +31,10 @@ Poptin forms and popup plugin tracks the website's visitors' behavior and shows 
 
 [youtube  https://www.youtube.com/watch?v=gZGz0tawfx8]
 
-> <strong>Open a Poptin account for free</strong><br>
+> <strong>Create a Poptin account for free</strong><br>
 > Poptin is a web application that works perfectly with WordPress and many more web platforms. Start creating your first popups and contact forms by <a href="https://app.popt.in/register?utm_source=wordpress" target="_blank" title="open free Poptin account"><strong>opening your free account</strong></a>
 
-You can create anything your marketing heart desires, from advanced overlays to pop-ups, inline forms, lead form widgets, exit popups, and social widgets - it's all on-brand and fully customizable with our powerful popup builder. Reduce cart abandonment and bounce rate and increase conversion rate!
+You can create anything your marketing heart desires, from advanced overlays to SMS popups, inline forms, lead form widgets, exit popups, and social widgets - it’s all on-brand and fully customizable with our powerful popup builder. Reduce cart abandonment and bounce rate and increase conversion rate!
 
 = EXIT INTENT TRIGGER INCLUDED 🥳 =
 Our popup plugin includes exit intent trigger on the free plan and many other advanced features. The free plan comes with 1,000 visitors of popups and forms per month.
@@ -43,7 +43,7 @@ Our popup plugin includes exit intent trigger on the free plan and many other ad
 = What do you get with Poptin? = 
 * Create popups and contact forms in minutes using a drag & drop popup editor 🚀
 
-* Choose from a wide range of fully responsive and well-designed popups and lead forms templates, including lightbox, welcome screen, notification bar, floating bar, slide-in, sidebar, Facebook likebox, mobile popups, video pop up, countdown & timer popups, and many more pop up templates
+* Choose from a wide range of fully responsive and well-designed popups and lead forms templates, including lightbox, welcome screen, sms popup, notification bar, floating bar, slide-in, sidebar, Facebook likebox, mobile popups, video pop up, countdown & timer popups, and many more pop up templates
 
 * Create beautiful inline forms using our powerful form builder: use our designed templates or create your own contact form from scratch. Add your embedded form anywhere on your website using a shortcode
 
@@ -66,7 +66,7 @@ Our exit intent trigger is included in the free plan. Create any type of exit po
 
 * Gamified popups - create beautiful gamified pop ups and get more sales. Create a spin to win pop up, scratch card, and pick a gift pop ups. Highly recommended for WooCommerce stores
 
-* Landing page link - collect emails and leads using our simple landing page link. Each popup and contact form has it own landing page link that can be sent via email, message or post it on social media
+* Landing page link – collect emails and leads using our simple landing page link. Each email popup and contact form has it own landing page link that can be sent via email, message or post it on social media
 
 * Draft and Autosaving - when you design a popup or form and the process stops in the middle (internet issues, your kid spilled water on your laptop etc), your popup or form is saved as draft. You can go back to it from the Popups and Forms tab
 
@@ -132,7 +132,7 @@ Want to create a different version of your embedded form for mobile and for desk
 
 [youtube  https://www.youtube.com/watch?v=3cVDhT68MEY]
 
-> <strong>Open a Poptin account for free</strong><br>
+> <strong>Create a Poptin account for free</strong><br>
 > Poptin is a web application that works perfectly with WordPress and many more web platforms. Start creating your first popup and contact form by <a href="https://app.popt.in/register?utm_source=wordpress" target="_blank" title="open a free Poptin account"><strong>opening your free account here</strong></a>
 
 = Gamified Pop ups =
