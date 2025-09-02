@@ -374,17 +374,13 @@ jQuery(document).ready(function ($) {
 
 		jQuery('.poptinWalkthroughVideoTrigger').on('click', function (e) {
 			e.preventDefault();
-			jQuery('#poptinExplanatoryVideo').modal({
-				backdrop: true,
-				keyboard: true,
-				show: true
-			}).css({
+			jQuery('#poptinExplanatoryVideo').modal("show").css({
 				left() {
 					const sidebarWidth = jQuery('#adminmenuwrap').width();
 					const value = innerWidth > 782 ? sidebarWidth : 0;
 					return `${value}px`;
 				}
-			})
+			});
 		});
 
 		// close modal when wordpress sidebar collapse

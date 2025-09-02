@@ -3,7 +3,7 @@ Contributors: poptin, galdub, tomeraharon
 Tags: pop ups, popups, exit intent, email pop up, popup
 Requires at least: 3.1
 Tested up to: 6.8
-Stable tag: 1.3.6
+Stable tag: 1.3.7
 Plugin URI: https://www.poptin.com
 License: GPLv3
 
@@ -241,6 +241,9 @@ You can connect Poptin for free to your favorite email platform and CRM includin
 11. Design your own stunning mobile pop up
 
 == Changelog ==
+
+= 1.3.7 =
+WordPress Playground bug fixed
 
 = 1.3.6 =
 Safari and Brave browser compatibility during Poptin installation

@@ -23,6 +23,11 @@ function poptin_get_iframe_url() {
             CURLOPT_POSTFIELDS => $curl_post_array,
             CURLOPT_CAINFO => POPTIN_CACERT_PATH
         );
+
+        // Only disable SSL verification for WordPress playground
+        if (strpos(site_url(), 'playground.wordpress.net') !== false) {
+            $curl_options[CURLOPT_SSL_VERIFYPEER] = false;
+        }
         
         $curl = curl_init();
         curl_setopt_array($curl, $curl_options);
