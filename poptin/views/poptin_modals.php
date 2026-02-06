@@ -25,7 +25,7 @@ if (!defined('ABSPATH')) {
                                 1
                             </div>
                             <p class="step-description">
-                                Go to your dashboard and click on 'Installation Code' in the left menu.
+                                Go to your <a href="<?php echo POPTIN_APP_BASE_URL; ?>overview?installation=wordpress" target="_blank">Dashboard</a> <img src="<?php echo POPTIN_URL . '/assets/images/external-link.svg' ?>" class="external-link-icon"> and click on 'Installation Code' in the left menu.
                             </p>
                         </div>
                     </div>

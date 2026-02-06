@@ -3,7 +3,7 @@
 Plugin Name: Poptin
 Contributors: poptin, galdub, tomeraharon
 Description: Use Poptin to get more leads, sales, and email subscribers. Create targeted beautiful pop ups and forms in less than 2 minutes with ease.
-Version: 1.3.7
+Version: 1.3.10
 Author: Poptin
 Author URI: https://www.poptin.com
 Text Domain: poptin
@@ -18,7 +18,7 @@ if (!defined('ABSPATH')) {
     exit;
 }
 
-define('POPTIN_VERSION', '1.3.7');
+define('POPTIN_VERSION', '1.3.10');
 define('POPTIN_PATH', dirname(__FILE__));
 define('POPTIN_PATH_INCLUDES', dirname(__FILE__) . '/inc');
 define('POPTIN_FOLDER', basename(POPTIN_PATH));
@@ -64,7 +64,7 @@ class POPTIN_Plugin_Base
 
         add_filter('plugin_action_links_'.plugin_basename(__FILE__), [$this, 'plugin_action_links']);
 
-        $poptinidcheck = get_option('poptin_id', (isset($myOption_def) ? $myOption_def : false));
+        $poptinidcheck = get_option('poptin_id', false);
         if ($poptinidcheck) {
             $poptinid = get_option('poptin_id');
             if (strlen($poptinid) != 13) {
@@ -172,6 +172,25 @@ class POPTIN_Plugin_Base
     public function admin_init() {
         if(isset($_GET['page']) && $_GET['page'] == 'Poptin-support') {
             wp_redirect(admin_url("admin.php?page=poptin"));
+            exit;
+        }
+        
+        // Handle logout redirect early, before any output is sent
+        if(isset($_GET['page']) && $_GET['page'] == 'poptin-logout') {
+            // Check user permissions
+            if (!current_user_can('manage_options')) {
+                wp_die(__('You do not have sufficient permissions to access this page.', 'ppbase'));
+            }
+            
+            // Clear Poptin data
+            update_option('poptin_id', '');
+            update_option('poptin_marketplace_token', '');
+            update_option('poptin_marketplace_email_id', '');
+            update_option('poptin_user_id', '');
+            poptin_clear_all_caches();
+            
+            // Redirect to Poptin dashboard
+            wp_redirect(admin_url('admin.php?page=poptin'));
             exit;
         }
     }
@@ -831,16 +850,22 @@ class POPTIN_Plugin_Base
     }
 
     public function poptin_logout_view() {
-        // Clear Poptin data (similar to your existing delete_poptin_id method)
+        // This is a fallback - the logout should be handled in admin_init
+        // But if we reach here, clear data and use JavaScript redirect
         update_option('poptin_id', '');
         update_option('poptin_marketplace_token', '');
         update_option('poptin_marketplace_email_id', '');
         update_option('poptin_user_id', '');
         poptin_clear_all_caches();
         
-        // Redirect back to main page
-        wp_redirect(admin_url('admin.php?page=poptin'));
-        exit;
+        // Use JavaScript redirect since headers may already be sent
+        $redirect_url = admin_url('admin.php?page=poptin');
+        ?>
+        <script type="text/javascript">
+            window.location.href = "<?php echo esc_js($redirect_url); ?>";
+        </script>
+        <p><?php esc_html_e('Logging out... If you are not redirected automatically, ', 'ppbase'); ?><a href="<?php echo esc_url($redirect_url); ?>"><?php esc_html_e('click here', 'ppbase'); ?></a>.</p>
+        <?php
     }
 
     public function handle_logout_ajax() {

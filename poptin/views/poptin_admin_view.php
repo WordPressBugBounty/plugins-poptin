@@ -9,9 +9,9 @@ if (!current_user_can('manage_options')) {
     wp_die(__('You do not have sufficient permissions to access this page.'));
 }
 
-$poptinidcheck = get_option('poptin_id', (isset($myOption_def) ? $myOption_def : false));
-$poptin_marketplace_token_check = get_option('poptin_marketplace_token', (isset($myOption_def) ? $myOption_def : false));
-$poptin_marketplace_email_id_check = get_option('poptin_marketplace_email_id', (isset($myOption_def) ? $myOption_def : false));
+$poptinidcheck = get_option('poptin_id', false);
+$poptin_marketplace_token_check = get_option('poptin_marketplace_token', false);
+$poptin_marketplace_email_id_check = get_option('poptin_marketplace_email_id', false);
 $go_to_dashboard_url = POPTIN_APP_BASE_URL;
 
 /**
@@ -45,9 +45,8 @@ $admin_email = get_bloginfo('admin_email');
                         </h4>
 
                         <!-- Use the dynamically determined URL - JavaScript will handle target -->
-                        <a class="cbutton dashboard-link goto_dashboard_button_pp_updatable" 
-                           href="<?php echo esc_url($go_to_dashboard_url) ?>">
-                           <?php _e("Go to your Dashboard", "ppbase"); ?> <img src="<?php echo POPTIN_URL . '/assets/images/polygon.svg' ?>" alt="">
+                        <a class="cbutton dashboard-link goto_dashboard_button_pp_updatable" href="<?php echo esc_url($go_to_dashboard_url); ?>" target="_blank">
+                           <?php _e("Go to Your Dashboard", "ppbase"); ?> <img src="<?php echo POPTIN_URL . '/assets/images/polygon.svg' ?>" alt="">
                         </a>
                         <div class="other-links d-flex justify-center">
                             <span>
@@ -65,7 +64,7 @@ $admin_email = get_bloginfo('admin_email');
                             </div>
                             <div class="pplogout">
                                 <a href="#" class="pplogout">
-                                    Deactivate poptin >
+                                    Deactivate Poptin >
                                 </a>
                             </div>
                         </div>
@@ -75,6 +74,11 @@ $admin_email = get_bloginfo('admin_email');
                 <div class="ppaccountmanager" style="<?php echo ($poptinidcheck ? 'display:none' : 'display:block') ?>">
 
                     <div class="poptinView popotinRegister">
+
+                        <div class="popotinFormByline">
+                            Manage directly from <b>WordPress</b>
+                        </div>
+
                         <div class="title"><?php _e("Sign Up for Free", 'ppbase'); ?></div>
                         <h4 class="description"><?php _e("👉 Create beautiful pop ups and forms", 'ppbase'); ?></h4>
 
@@ -114,6 +118,11 @@ $admin_email = get_bloginfo('admin_email');
                         </form>
                     </div>
                     <div class="poptinView popotinLogin" style="display: none;">
+                        
+                        <div class="popotinFormByline">
+                            Access directly from <b>WordPress</b>
+                        </div>
+
                         <div class="title"><?php _e("You Look Familiar", 'ppbase'); ?></div>
 
                         <form id="map_poptin_id_form" class="ppFormLogin ppForm">
@@ -129,7 +138,7 @@ $admin_email = get_bloginfo('admin_email');
                                 </div>
                                 <div class="input-controls">
                                     <input type="text" class="poptin_input" autofocus id="poptinUserId">
-                                    <label>Enter your User ID</label>
+                                    <label>Enter your User ID...</label>
                                 </div>
                             </div>
                             <button class="ppSubmit poptin_submit_button">
@@ -148,6 +157,9 @@ $admin_email = get_bloginfo('admin_email');
                             <input type="hidden" id="ppFormIdRegister" value="<?php echo wp_create_nonce("ppFormIdRegister") ?>">
                             <div class="other-links">
                                 <a href="#" class="ppRegister"><?php _e("Or, create a new Poptin account", "ppbase"); ?> </a>
+                            </div>
+                            <div class="other-links">
+                                <a href="<?php echo POPTIN_APP_BASE_URL; ?>" target="_blank"><?php _e("Login to Poptin account", "ppbase"); ?> <img class="external-link-icon" src="<?php echo POPTIN_URL . '/assets/images/external-link.svg' ?>" alt=""></a>
                             </div>
                         </form>
                     </div>
