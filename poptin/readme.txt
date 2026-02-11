@@ -76,16 +76,15 @@ Our exit intent trigger is included in the free plan. Create any type of exit po
 
 * SEO friendly mobile & desktop popups, and inline forms
 
-* Ways to automate Poptin with Zapier:
+* Ways to automate Poptin with Zapier/Make.com:
   - Send an autoresponder with a Gmail account
   - Add Poptin leads to a Google Sheets spreadsheet
   - Add leads into Airtable
   - Integration with Salesforce and Pardot
   - Create leads in Intercom
-  - Integration with Marketo
-  - Add Trello cards from new Poptin submissions
+  - Add Monday CRM leads from new Poptin submissions
+  - Add leads to ClickUp lists for marketing ops or campaign tracking
   - Send Slack messages for new Poptin leads
-  - Send Twilio SMS for new Poptin leads
 
 * Create popups and forms in any language: English, Mandarin, Portuguese, Spanish, Hindi, Arabic, Russian, Hebrew, German, Japanese, Italian, Polish, Thai, Ukrainian, Dutch, Greek, Hungarian, Romanian, Persian, Korean, and more
 
