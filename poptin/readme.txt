@@ -1,195 +1,235 @@
-﻿=== Poptin - Exit Pop Ups & Email Popups ===
+﻿=== Poptin - Email Marketing Automation, Newsletter & Exit Pop Ups, Email Popups ===
 Contributors: poptin, galdub, tomeraharon
-Tags: pop ups, popups, exit intent, email pop up, popup
+Tags: email marketing, email automation, newsletter, pop ups, popup
 Requires at least: 3.1
-Tested up to: 6.9
-Stable tag: 1.3.10
+Tested up to: 7.0
+Stable tag: 1.3.11
 Plugin URI: https://www.poptin.com
 License: GPLv3
 
-Free exit intent popup builder, gamified popups with spin the wheel, contact form builder & lead generation pop ups platform for your website. 🎉
+Free email automation, email campaigns, exit intent popup builder, gamified popups with spin the wheel, contact forms & smart pop ups. 🎉
 
 == Description ==
 
-= Free exit intent popup builder, gamified popups with spin the wheel, contact form builder & lead generation pop ups platform for your website. 🎉 =
+= All-in-one email marketing, email automation, pop ups, forms, and coupon platform to grow your audience, nurture customer relationships, and drive more sales. 🎉 =
 
 <a href="https://help.poptin.com/?utm_source=wordpressorg" target="_blank" title="Support">Support</a> | <a href="https://www.poptin.com/gallery/?utm_source=wordpressorg" target="_blank" title="Poptin.com Demo">Demo</a> | <a href="https://www.poptin.com/pricing/?utm_source=wordpressorg" target="_blank" title="Poptin Pricing">Upgrade</a> | <a href="https://app.popt.in/register/?utm_source=wordpressorg" target="_blank" title="Sign Up to Poptin">Sign Up for Free </a>
 
-<strong>Create beautiful email popups, sms pop ups, optins, lightbox pop ups, notification bar, and contact forms in less than 2 minutes. Use exit intent popup & advanced targeting rules to convert more visitors into leads, subscribers, and sales.</strong>
+Create beautiful email campaigns, newsletters, email popups, sms pop ups, exit intent popup, coupons and email marketing automation to convert more visitors into leads, subscribers, and sales.
 
-= How Poptin Pop Ups Can Help Your Business Grow 🚀 =
-* Grow your email list using email pop ups
-* Capture more leads using lead capture pop ups
-* Get more sales with upsell pop up 
-* Recover cart abandonment with exit offers
-* Increase visitors' engagement with pop ups & inline forms
-* Create a notification bar, update your users about deals & promotions
-
-Poptin forms and popup plugin tracks the website's visitors' behavior and shows the right message at the right time. The platform helps to improve conversion rate and turn more visitors into leads, sales, newsletter subscribers, increases engagement, and recovers abandoning website and cart visitors using exit offers and <a href="https://www.poptin.com/blog/exit-intent-technology-can-grow-business/" target="_blank" title="exit intent">exit intent</a> technology and many other triggers.
+= How Poptin Emails & Pop Ups Can Help Your Business Grow 🚀 =
+* Grow your email list using email popups and forms
+* Segment contacts using behavior, tags, pop up interaction, and custom properties
+* Send targeted newsletters and email campaigns
+* Automate welcome, abandoned cart, birthday, reactivation and lifecycle emails
+* Recover cart abandonment with spin the wheel, exit offers and upsell pop up
+* Nurture customers with personalized marketing journeys, coupons and promotions
 
 [youtube  https://www.youtube.com/watch?v=gZGz0tawfx8]
 
 > <strong>Create a Poptin account for free</strong><br>
 > Poptin is a web application that works perfectly with WordPress and many more web platforms. Start creating your first popups and contact forms by <a href="https://app.popt.in/register?utm_source=wordpress" target="_blank" title="open free Poptin account"><strong>opening your free account</strong></a>
 
-You can create anything your marketing heart desires, from advanced overlays to SMS popups, inline forms, lead form widgets, exit popups, and social widgets - it’s all on-brand and fully customizable with our powerful popup builder. Reduce cart abandonment and bounce rate and increase conversion rate!
 
-= EXIT INTENT TRIGGER INCLUDED 🥳 =
-Our popup plugin includes exit intent trigger on the free plan and many other advanced features. The free plan comes with 1,000 visitors of popups and forms per month.
+= 📧 EMAIL MARKETING AUTOMATION =
+
+
+Poptin gives you everything you need to grow and engage your audience in one platform. Organize and segment contacts using behavioral and engagement data, create and send unlimited email campaigns and newsletters, and automate personalized customer journeys based on subscriber activity, website behavior, ecommerce events, and lifecycle stages to increase conversions, retention, and revenue. 
+Unlimited email campaigns and unlimited email sending on all email marketing plans - no monthly sending caps or per-campaign limits. 
+
+<strong>Contact Management & Segmentation</strong>
+Organize, manage, and segment your audience using tags, custom properties, popup and form interactions, engagement history, activity tracking, and behavioral data. Create highly targeted segments based on subscriber attributes, actions, website activity, and campaign engagement to deliver more relevant experience
+
+* Contact profiles with complete activity history and engagement timeline
+* Custom properties including text, number, date, and boolean fields
+* Tags, subscriber preferences, and custom attributes
+* Popup and form interaction tracking
+* Website activity and visitor behavior tracking
+* UTM campaign, source, medium, content, term, and ID tracking
+* Email engagement tracking (opens, clicks, bounces, unsubscribes)
+* Consent and subscription status tracking
+* Contact search, filtering, import, and export
+* Dynamic merge tags and contact personalization
+
+Segment by 
+* Tags, preferences, and custom properties
+* Popup and form submissions
+* Popup views, conversions, and gamified popup interactions
+* Email opens, clicks, bounces, and engagement activity
+* Website visits, page views, and browsing behavior
+* Traffic source, referral source, and UTM campaigns
+* Location, country, language, browser, OS, and device
+* Subscription status, consent status, and lifecycle stage
+Dynamic segments that update automatically as contacts change
+
+
+<strong>Email Campaigns</strong>
+Create, personalize, and send beautiful email campaigns and newsletters with our drag-and-drop editor. Use audience segmentation, preferences, dynamic content, personalization, coupons, scheduling, and advanced targeting to reach the right contacts at the right time and improve engagement, conversions, and sales.
+* Visual automation workflow builder
+* Welcome email automations
+* Abandoned cart recovery sequences
+* Birthday and anniversary automations
+* Reactivation and win-back campaigns
+* Lead nurturing sequences
+* Coupon delivery automations
+* Customer onboarding journeys
+* Cross-sell and upsell campaigns
+* Trigger email automations from popup and form activity
+* Trigger email automations from website activity and visitor behavior
+* Trigger automation from email opens, clicks, and engagement activity
+* Trigger email automations from tags, subscriber preferences, and contact property changes
+* Trigger automations from dates, birthdays, anniversaries, and custom date fields
+* Wait and delay actions for timed customer journeys
+* Split conditions and branching logic for advanced automation flows
+* Multi-step customer journeys with personalized paths
+* Automation performance tracking and reporting
+
+
+
+= 💻 SMART POP UPS & EMBEDDED FORMS =
+
+Poptin forms and popup plugin tracks the website's visitors' behavior and shows the right message at the right time. The platform helps to improve conversion rate and turn more visitors into leads, sales, newsletter subscribers, increases engagement, and recovers abandoning website and cart visitors using exit offers and <a href="https://www.poptin.com/blog/exit-intent-technology-can-grow-business/" target="_blank" title="exit intent">exit intent</a> technology and many other pop ups triggers.
+
+You can create anything your marketing heart desires, from advanced overlays to SMS popups, inline forms, call button pop up, WhatsApp button, welcome bar, exit popups, and social widgets - it’s all on-brand and fully customizable with our powerful popup builder. Our popup plugin includes exit intent trigger on the free plan and many other advanced features. The free plan comes with 1,000 visitors of popups and forms per month.
+
 <strong>Unlimited popups, unlimited forms, unlimited integrations, unlimited leads.</strong>
 
+
 = What do you get with Poptin? = 
-* Create popups and contact forms in minutes using a drag & drop popup editor 🚀
 
-* Choose from a wide range of fully responsive and well-designed popups and lead forms templates, including lightbox, welcome screen, sms popup, notification bar, floating bar, slide-in, sidebar, mobile popups, video pop up, countdown & timer popups, and many more pop up templates
+* <strong>Drag-and-Drop Pop Up Builder</strong> - Create popups and contact forms in minutes without coding 
 
-* Create beautiful inline forms using our powerful form builder: use our designed templates or create your own contact form from scratch. Add your embedded form anywhere on your website using a shortcode
+* <strong>Responsive Templates</strong> - Choose from popup and form templates including lightbox, slide-in, floating bar, notification bar, fullscreen, video, countdown, mobile popups, and more 
 
-* Exit intent technology - unlimited exit popups included.
-Our exit intent trigger is included in the free plan. Create any type of exit popup you want for your website (light box, bar, full screen etc)
+* <strong>Inline Forms</strong> - Build inline forms and embed them anywhere on your website using a shortcode 
 
-* Track your popup and contact form analytics - see how many people visit your site and how many of them have seen your pop ups and overlays. Understand what works great and what doesn't
+* <strong>Exit-Intent Technology</strong> - Unlimited exit popups. Our exit intent trigger is included on all plans 🥳 
 
-* Advanced targeting options for your pop ups including exit intent trigger, display after time spent on the website, scrolling trigger, display after X pages visited, display after X clicks, inactivity trigger, URL targeting (page level on-site targeting), device targeting, geo-location (by country, including US states), OS & Browsers, IP block lists, days and hours, new vs returning visitors (based on cookies), traffic source (Facebook, Google, Google Ads [Adwords], ChatGPT, Gemini, X.com, perplexity.ai, Youtube, Reddit, Twitter, Pinterest and any site you want), page source targeting, on-click popup display
+* <strong>Analytics & Reporting</strong> - Track popup, form, and conversion analytics to optimize performance 
 
-* Show beautiful popups and embedded forms according to each visitor's unique behavior
+* <strong>Advanced Targeting & Triggers</strong> - Target visitors using exit intent, scroll depth, inactivity, page visits, clicks, URL targeting, device targeting, geolocation, traffic source, schedules, and audience targeting. Run your popup with our Autopilot trigger and get optimized results
 
-* Add custom images and backgrounds, HTML elements, entry effects, CTA (call-to-action), change the height and width of your popups and forms, control the display location (header and footer, all sides and corners) with our form and popup maker
+* <strong>Custom Design</strong> - Customize popups and forms with images, videos, HTML, CTAs, effects, layouts, and positioning 
 
-* Integrate your popups and contact forms with your favorite emailing system, CRM, or marketing automation platform including: MailChimp, Zapier, GetResponse, ConvertKit, Pipedrive, ActiveCampaign, Hubspot, Klaviyo, Zoho CRM, Salesforce, and many more
+* <strong>Integrations</strong> - Connect your pop ups with MailChimp, GetResponse, Omnisend, Kit, Pipedrive, ActiveCampaign, HubSpot, Klaviyo, Zoho CRM, Salesforce, Zapier, Make, and many more email marketing, CRM, and marketing automation platforms 
 
-* A/B testing - what does work better, video popup or popup form? Test one popup or form against the other and improve conversion rate optimization
+* <strong>A/B Testing</strong> - Compare video popups, popup forms, triggers and other pop up variations to improve conversion rate optimization 
 
-* All types of fields - besides the regular name, email, and phone fields, add number fields, textarea field, website field, date, select, radio buttons, checkboxes, and hidden field. Use the new fields to make your forms better. You can also use it to gather feedback and to create surveys
+* <strong>Custom Fields</strong> - Add predefined and custom fields to your pop ups including dropdowns, radio buttons, checkboxes, hidden fields, dates, and more 
 
-* Gamified popups - create beautiful gamified pop ups and get more sales. Create a spin to win pop up, scratch card, and pick a gift pop ups. Highly recommended for WooCommerce stores to increase sales
+* <strong>Gamified Popups</strong> - Increase engagement with Spin the Wheel, Scratch Card, and Pick a Gift popups. Highly recommended for WooCommerce stores to 
+increase sales 
 
-* Landing page link – collect emails and leads using our simple landing page link. Each email popup and contact form has it own landing page link that can be sent via email, message or post it on social media
+* <strong>Landing Page Links</strong> - Collect leads using dedicated landing page links for popups and forms 
 
-* Draft and Autosaving - when you design a popup or form and the process stops in the middle (internet issues, your kid spilled water on your laptop etc), your popup or form is saved as draft. You can go back to it from the Popups and Forms tab
+* <strong>Draft & Autosave</strong> - Automatically save and protect your work while creating and editing popups and forms 
 
- All your changes will be saved periodically if you work on an existing popup or form. Once you go back to the editing of the popup or form you changed, choose if you want to load the last changes or work on the current version
+* <strong>Multiple Users Management</strong> - Manage multiple users and sub-accounts with Agency and Growth plans. 
 
-* Agency package: manage users and sub-accounts
+* <strong>SEO-Friendly & Accessibility Ready</strong> - SEO-friendly, accessible popups, forms, and widgets optimized for desktop and mobile devices.
 
-* Run your popup with our Autopilot trigger and get optimized results
+* <strong>Multi-Language Support & RTL</strong> - Create popups and forms in English, Hebrew, German, Japanese, Italian, Arabic, French, and many more languages & Full RTL support
 
-* SEO friendly mobile & desktop popups, and inline forms
+* <strong>Dynamic Content & Merge Tags</strong> - Display personalized text and images in popups and forms using Merge Tags and UTM parameters 
 
-* Ways to automate Poptin with Zapier/Make.com:
-  - Send an autoresponder with a Gmail account
-  - Add Poptin leads to a Google Sheets spreadsheet
-  - Add leads into Airtable
-  - Integration with Salesforce and Pardot
-  - Create leads in Intercom
-  - Add Monday CRM leads from new Poptin submissions
-  - Add leads to ClickUp lists for marketing ops or campaign tracking
-  - Send Slack messages for new Poptin leads
+* <strong>Custom HTML Embeds</strong> - Embed quizzes, surveys, polls, maps, forms, social share buttons, and more directly into your popups 
 
-* Create popups and forms in any language: English, Mandarin, Portuguese, Spanish, Hindi, Arabic, Russian, Hebrew, German, Japanese, Italian, Polish, Thai, Ukrainian, Dutch, Greek, Hungarian, Romanian, Persian, Korean, and more
+* <strong>Multi-Step Popup Flows</strong> - Launch a popup from another popup and create double opt-in, triple opt-in, 2-step lightbox, slide-in, fullscreen overlays, and advanced conversion flows 
 
-* RTL support: all the popups and forms are 100% RTL supported
+* <strong>Heatmaps & Session Recording Integrations</strong> - Track popup and form performance with Hotjar, Microsoft Clarity, Lucky Orange, ClickTale, FullStory, Smartlook, Crazy Egg, Mouseflow, and other heatmap and session recording tools 
 
-* Dynamic tags for your pop ups and forms - add dynamic Merge Tags to your pop ups and contact forms. Display dynamic text or image that is pulled from a class or ID on your page, or even from a UTM parameter. Use this feature to create dynamic pop ups and contact forms based on your website's content
+* <strong>Compatible with Popular WordPress Builders</strong> - Show popups and forms on websites built with Elementor, Divi, Bricks Builder, Beaver Builder, WPBakery, SeedProd, Oxygen, Breakdance, Gutenberg, and more. 
 
-* Use our custom HTML to embed quizzes, social share buttons, polls, Google surveys, Google Maps, Typeform, Jotform, Wufoo widgets and more
+* <strong>Deep WooCommerce integration - coming soon!</strong>
 
-* Launch a pop up from another pop up and create double opt-in, triple opt-in or any flow you want. You can create 2-step lightbox pop up or even slide-in with a button that will launch a light-box or a full-screen overlay.
 
-* You can track the performance of your forms and popups not only on your dashboard but also with Hotjar, Microsoft Clarity, Lucky Orange, ClickTale, FullStory Smartlook, Crazyegg, MouseFlow or any other heatmap and session recording tool
+= Advanced Triggers & Targeting Rules =
 
-* Cookie targeting: display forms and popups to users with specific cookies. Use this feature to show popups and contact forms based on shopping cart data such as number of items, cart value, etc. You can also target logged in and logged out users
+<strong>Pop up Triggers</strong>
+Display popups based on visitor actions and behavior, including Exit Intent, Time Delay, Scroll Depth, Pages Visited, Click Count, Inactivity, On-Click Triggers, JavaScript Triggers, and Cart Triggers.
 
-* Tested with all browsers - Chrome, Firefox, Android, iOS, Safari, Explorer, Edge, Opera, and more. Tested with all Windows versions, macOS and other operating systems
+<strong>Pop up Targeting Options</strong>
+Target your pop ups to visitors based on URL/Page Targeting, Device, Countries & Geo-Location (including US states), OS & Browsers, Days, Hours & Dates, Traffic Sources (Organic, Google Ads, Facebook, ChatGPT, Gemini, Claude, Perplexity, Reddit, YouTube, Pinterest, X, and more), New vs Returning Visitors, Cookies, Previous Pages Visited, Popup Engagement, View Count, Title Tags, Source Code, JavaScript Conditions, IP Blocking, AdBlock Detection, and more.
 
-* GDPR features:
-  - Manually delete leads from the "Leads" tab
-  - Change the email of your account
-  - You can automatically delete leads so they won't be stored for more than 1/3/6/12/18/24 months or never stored/never deleted
-  - See the IP address of any lead you get
-  - Add a consent checkbox if you want your subscribers to agree to your terms of service before submitting a form
-  - Decreased number of cookies
-  - <a href="https://www.poptin.com/gdpr/" target="_blank" title="Click here">Click here</a> to read more about Poptin's GDPR changes
 
-* Create unique or fixed-value coupons that embed directly in popups and track their usage for performance insights
+= Gamified Pop ups =
+
+Increase engagement, capture more leads, and drive more sales with interactive gamified popups. Create Spin the Wheel pop up, Scratch Card, and Pick a Gift popups with our gamified popup builder to reward visitors with coupon codes, discounts, and special offers. Perfect for WooCommerce stores looking to boost conversions and make pop ups promotions more engaging.
+ 
+Available gamified popups: 
+
+<strong>Spin to Win pop up</strong>
+Wheel of fortune pop ups or spin wheel pop ups let your visitors spin a wheel and get the chance to win one of the many prizes or codes on your wheel. Use the wheel of fortune pop up or spin wheel popup for almost always win situation for your visitors.
+
+<strong>Scratch Card pop up</strong>
+Scratch off pop ups or scratch card pop ups are where you set a code and the customer will “scratch” the card to reveal the code for your customers to use in your shop. Use a scratch off popup for that lottery card feel. There’s always a code that customers will win with the scratch cards popups.
+
+<strong>Pick a Gift pop up</strong>
+Pick a gift pop ups let your customers pick from one of three gifts for a chance to win a special code that can be used in your store. Use the gift pop ups if you want a bit of more thrill, with the visitors getting a chance to win a code or nothing at all.
+
+[youtube  https://www.youtube.com/watch?v=lxWOrky14so]
+
+
 
 = Drag and Drop Inline Form Builder =
-Create inline contact forms with Poptin. Once you use our form builder and create your contact form, use our short code and add the form anywhere on your website. When you create embedded forms with Poptin you can use our smart targeting and triggers options to maximize the conversion rate.
 
-Using our powerful form builder you can create beautiful forms. Use our contact form templates or create your own form from scratch. Add elements that’ll increase your conversion rate like countdown timer, video, custom HTML, images, shapes, attention effect for your button and more. 
+Create inline contact forms with Poptin and easily embed them anywhere on your website using a shortcode. 
+Use smart targeting and trigger options to maximize conversions, and build beautiful forms from scratch or with ready-made templates. Similar to pop ups, add powerful elements such as countdown timers, videos, custom HTML, images, shapes, and button attention effects to increase engagement. We support all field types, including name, email, phone, custom fields, dates, websites, numbers, dropdowns, radio buttons, checkboxes, and more, giving you complete flexibility to create the perfect form for any use case.
 
-We support any type of field, including name, email, phone, custom fields, date, website, numbers, dropdown, radio buttons, checkboxes, and more.
+Use our form builder to create different versions for desktop and mobile, and display them using the same shortcode.
+Run A/B tests – use our form builder to create a different version of your form, and also create a different trigger and targeting rules. Display different versions of your contact form using the same shortcode, and find out what’s the best version of your inline contact form.
 
-You can also connect your contact form to our native integrations, including MailChimp, HubSpot, Zoho, GetResponse, and more. You can also use our Zapier app and connect your embedded form to any platform supported by Zapier. Connect your contact form to our autoresponder, and send an automated email to visitors who fill out the form.
-
- Run A/B tests - use our form builder to create a different version of your form, and also create a different trigger and targeting rules. Display different versions of your contact form using the same shortcode, and find out what’s the best version of your inline contact form.
-
-Want to create a different version of your embedded form for mobile and for desktop? Use our form builder to create different versions for desktop and mobile, and display them using the same shortcode.
+Just like our pop ups, inline forms support all of Poptin’s integrations, allowing you to automatically send leads to your CRM, email marketing platform, help desk, webinar software, and more. Create advanced experiences by triggering a pop up after a form submission, showing a form only to visitors who interacted with a specific pop up, and combining forms and pop ups together to build highly targeted conversion funnels. 
 
 
 [youtube  https://www.youtube.com/watch?v=3cVDhT68MEY]
 
 > <strong>Create a Poptin account for free</strong><br>
-> Poptin is a web application that works perfectly with WordPress and many more web platforms. Start creating your first popup and contact form by <a href="https://app.popt.in/register?utm_source=wordpress" target="_blank" title="open a free Poptin account"><strong>opening your free account here</strong></a>
+> Poptin is a web application that works perfectly with WordPress and many more web platforms. Start creating your first popups and contact forms by <a href="https://app.popt.in/register?utm_source=wordpress" target="_blank" title="open free Poptin account"><strong>opening your free account</strong></a>
 
-= Gamified Pop ups =
-An easy-to-use gamified popup builder you can easily integrate to your website. Poptin’s gamified popups allow you to create three kinds: spin the wheel pop ups, scratch card popups, and gift pop ups. These pop ups are ideal for WooCommerce stores.
 
-Generate more leads and encourage more sales by giving customers an engaging way to earn coupon codes and special offers from you!
+= Coupons =
 
-We’ve made three different kinds of gamified pop ups for you to offer to your visitors. More games, more fun, and more chances of winning.
+Create and manage fixed-value or unique coupon codes and display them directly in your coupon popups, discount pop ups, forms, and email campaign. Automatically reward visitors with personalized discounts, promotional offers, and coupon codes to increase conversions, recover abandoned visitors, grow your email list, and drive more sales. Track coupon usage through pop ups, redemptions, and performance to measure the effectiveness of your promotions and marketing campaigns. 
 
-Here are three kinds of popups we’ve created for you:
+= Email & Pop Ups API (Coming Soon) =
 
-* Spin to win pop up
-* Scratch card pop up
-* Pick a gift pop up
+Extend and automate your email marketing workflows with our upcoming API. Update contact properties, tags, preferences, and subscriber data programmatically, trigger email automations based on customer actions, and send email campaigns directly from your applications, websites, and internal systems. The API will also provide access to popup creation and management, including MCP support for AI agents that can build and optimize pop ups automatically. Retrieve popup performance and conversion statistics, manage campaigns at scale, and connect Poptin with your custom applications, workflows, and AI-powered experiences. 
 
-Wheel of fortune pop ups or spin wheel pop ups let your visitors spin a wheel and get the chance to win one of the many prizes or codes on your wheel. Use the wheel of fortune pop up or spin wheel popup for almost always win situation for your visitors. 
 
-Scratch off pop ups or scratch card pop ups are where you set a code and the customer will "scratch" the card to reveal the code for your customers to use in your shop. Use a scratch off popup for that lottery card feel. There’s always a code that customers will win with the scratch cards popups.
+= 70+ Popup Integrations =
 
-Pick a gift pop ups let your customers pick from one of three gifts for a chance to win a special code that can be used in your store. Use the gift pop ups if you want a bit of more thrill, with the visitors getting a chance to win a code or nothing at all.
+Connect pop ups & forms with the tools you already use, including Mailchimp, HubSpot, Salesforce, Pipedrive, Klaviyo, Omnisend, ActiveCampaign, Kit (ConvertKit), Brevo, Zapier, Make, Google Sheets, Webhooks, and many more. Sync contacts, automate workflows, trigger campaigns, and keep your marketing data connected across your entire tech stack.
+Manage API keys securely from your account and connect Poptin with Zapier, Make, webhooks, custom applications, and thousands of other tools.
 
-Appeal to the kids in your customers by adding gamified pop ups on your website.
 
-[youtube  https://www.youtube.com/watch?v=lxWOrky14so]
+<strong>Use Poptin directly from your WordPress admin panel or as a standalone app</strong>
+Access and manage your contacts, email campaigns, email automation, pop ups, forms, coupons, and analytics directly from your WordPress admin panel. Create, publish, track, and optimize your popups and email campaigns without switching between multiple tools, platforms or tabs.
 
-= Autoresponder =
-With the autoresponder, send an automatic email to visitors that submitted your pop ups and contact forms. Send an autoresponder for:
 
-* A discount coupon to new newsletter subscribers
-* A "Thank you" or a “Welcome” email
-* A discount coupon code when visitors try to leave your checkout page
-* A link to download an eBook, video, guide or manual, or you can also attach the file to the email
-The autoresponder is available on any paid plan
+<strong>Security & GDPR Features:</strong>
+Poptin follows industry-standard security practices and is ISO 27001 compliant, ensuring your data is handled securely.
+Poptin includes built-in tools to help you comply with GDPR and other privacy regulations. 
 
-= Popular popups use cases = 
-* Show an exit intent popup with a discount and a modal popup countdown to visitors who try to leave your eCommerce store checkout page and get more sales
-* Show a scroll box newsletter pop up to visitors who read and scroll down 60% of your blog post and grow your email list
-* Create an inline form on all your blog posts, and sync all your subscribers to your MailChimp account
-* Show a floating bar popup with a coupon code to visitors who came to your site from a campaign you run that includes a UTM
-* Show a click-to-call mobile widget to people that visit your site during your business work hours to get more leads
-* Create a feedback form or survey to gather information from your website's visitors
+* Lead and Contact Deletion Controls - Manually delete leads at any time from the Leads dashboard. 
+* Automatic Data Retention - Automatically delete lead data after 1, 3, 6, 12, 18, or 24 months, or choose to never store or never delete leads 
+* Lead Information Access - View lead details, including IP addresses, for compliance, auditing, and record-keeping purposes. 
+* Consent Checkboxes - Add consent checkboxes to require visitors to agree to your terms before submitting a pop up or form.
+* Double Opt-In Support - Enable double opt-in email confirmations to verify subscribers before adding them to your email list 
+* Account Management - Easily update the email address and other information associated with your account.  
+* Privacy-Friendly Tracking - Reduced cookie usage to help support privacy and compliance requirements 
+* <a href="https://www.poptin.com/gdpr/" target="_blank" title="Click here">Click here</a> to read more
 
-Poptin works great with WordPress page builders including Elementor, Divi, Beaver Builder, WPBakery, SeedProd, Gutenberg and more.
 
-= Beta =
-Our new <strong>Contacts</strong> system is now in beta, giving you deeper insights and more control over your audience than ever before. Easily track, organize, and manage contacts using advanced segmentation, custom properties, web activity, and detailed popup & form interactions - all in one place.<br>
-Understand how users engage across your site and popups, build smarter audiences, and lay the foundation for more personalized communication.
+<strong>Popular popups, email campaigns & mail automation use cases</strong>
+* Show an exit-intent popup with a discount and automatically send abandoned cart emails to visitors who leave your checkout page before completing a purchase. 
+* Display a newsletter popup after visitors scroll 60% of a blog post, then automatically enroll them in a multi-email welcome series. 
+* Display personalized popups with coupon codes to visitors arriving from Google Ads, Facebook Ads, ChatGPT, or other marketing campaigns, and follow up with targeted email campaign. 
+* Collect dates through your forms and automatically send birthday emails, anniversary offers, and special promotions. 
+* Automatically identify contacts who haven't opened or clicked emails recently and launch reactivation campaigns to win them back. 
 
-= Coming soon =
-* <strong>Email Campaigns</strong> - Send targeted marketing and transactional emails to your audience
-* <strong>Email Automations</strong> - Build automated workflows to engage, nurture, and convert contacts at scale
 
-= Testimonials =
 
-> " All lead capturing tools have failed me...except for Poptin. This is the only platform that gives me the necessary flexibility for my forms. My lead generation is stellar and Poptin is a big part of it."<br><br>
-> <strong>Ilan Missulawin, Co-founder, Clickcease</strong><br>
-
-> "Getting started with poptin was a breeze – we've implemented the widget and connected it to our newsletter within minutes. Our site's conversion rate skyrocketed!"<br>
-
-> <strong>Michael Kamleitner, CEO, Walls.io</strong><br>
 
 == Installation ==
 1. Install and activate Poptin plugin on your WordPress website
@@ -233,19 +273,22 @@ You can connect Poptin for free to your favorite email platform and CRM includin
 
 == Screenshots ==
 
-1. Customize your poptin using a drag & drop user interface (WYSIWYG)
-2. Choose from a wide range of fully responsive and well designed templates and themes
+1. Fully customizable popups and forms (WYSIWYG)
+2. Powerful email campaigns to boost sales
 3. Gamified pop ups including spin to win (wheel of fortune), scratch card, pick a gift pop ups
-4. Create mobile popups
+4. Built-in coupons to drive conversions
 5. Exit intent trigger included in the free plan
-6. Use advanced targeting triggers
-7. Stats at your fingertips
-8. Advanced drag and drop editor
-9. Fully customizable popups and forms
+6. Advanced triggers & targeting options including exit intent 
+7. Automated email flows that work 24/7
+8. Smart segmentation for precise targeting
+9. Track leads, conversions, and top traffic sources
 10. Create beautiful mobile pop ups for your website
 11. Design your own stunning mobile pop up
 
 == Changelog ==
+
+= 1.3.11 =
+Introduced Poptin Email with - allowing users to create newsletters, send email campaigns, and build email automations directly from Poptin.
 
 = 1.3.10 =
 Added a fix for WordPress warning
