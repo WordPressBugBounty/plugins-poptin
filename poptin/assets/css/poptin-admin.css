@@ -58,6 +58,16 @@ a:focus {
     height: 810px;
 }
 
+#authWrap {
+    height: 790px;
+}
+
+
+#customersWrap {
+    height: 790px;
+    padding: 42px 32px;
+}
+
 .poptinContentBox {
     width: 480px;
     height: 100%;
@@ -309,7 +319,7 @@ input:focus {
 }
 
 .poptinContentBox .poptinView form {
-    margin-top: 83px;
+    margin-top: 42px;
 }
 
 .poptinContentBox .poptinView form.ppFormLogin {
@@ -459,12 +469,16 @@ input:focus {
     margin-left: 50px;
     padding: 10px;
     box-sizing: border-box;
-    padding-top: 41px;
+    padding-top: 40px;
+    font-family: Poppins;
+    color: rgba(54, 42, 109, 1);
 }
 
 .poptinFeaturesBox .poptinFeatures {
     z-index: 1000;
     position: relative;
+    max-width: 374px;
+    margin: 0 auto;
 }
 
 .poptinFeaturesBox>img {
@@ -476,36 +490,93 @@ input:focus {
 }
 
 .poptinFeaturesBox .poptinFeatures .poptinFeaturesTitle {
-    font-family: Poppins;
-    font-style: normal;
     font-weight: 600;
     font-size: 18px;
     line-height: 140%;
-    /* or 25px */
-    color: #362A6D;
+    letter-spacing: 0%;
 }
 
-.poptinFeaturesBox .poptinFeatures .poptinFeaturesList ul {
-    margin-top: 25px;
+.poptinFeaturesBox .poptinFeatures .poptinFeaturesGrid {
+    display: grid;
+    grid-template-columns: 130px 200px;
+    gap: 24px;
+    margin-top: 24px;
 }
 
-.poptinFeaturesBox .poptinFeatures .poptinFeaturesList ul li {
-    font-family: Poppins;
-    font-style: normal;
-    font-weight: 300;
-    font-size: 16px;
-    line-height: 140%;
-    color: #362A6D;
+.poptinFeaturesBox .poptinFeatures .poptinFeaturesGrid .poptinFeatureItem {
     display: flex;
     align-items: center;
+    gap: 10px;
 }
 
-.poptinFeaturesBox .poptinFeatures .poptinFeaturesList ul li:not(:first-child) {
-    margin: 20px 0px;
+.poptinFeaturesBox .poptinFeatures .poptinFeaturesGrid .poptinFeatureItem span {
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 140%;
+    letter-spacing: 0%;
 }
 
-.poptinFeaturesBox .poptinFeatures .poptinFeaturesList ul li img {
-    margin-right: 10px;
+.poptinFeaturesBox .poptinFeatures .poptinFeaturesGrid .poptinFeatureIcon {
+    width: 36px;
+    height: 36px;
+    flex-shrink: 0;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.poptinFeaturesBox .poptinFeatures .poptinFeaturesGrid .poptinFeatureIcon img {
+    width: 20px;
+    height: 20px;
+}
+
+.poptinFeatureIcon--popups         { background-color: rgba(119, 97, 223, 0.1); }
+.poptinFeatureIcon--email-campaigns { background-color: rgba(242, 238, 255, 1); }
+.poptinFeatureIcon--forms           { background-color: rgba(255, 99, 118, 0.1); }
+.poptinFeatureIcon--email-automation { background-color: rgba(81, 219, 238, 0.2); }
+.poptinFeatureIcon--coupons         { background-color: rgba(255, 193, 99, 0.2); }
+.poptinFeatureIcon--segmentation    { background-color: rgba(21, 193, 93, 0.1); }
+
+.poptinFeaturesBox .poptinFeatures .poptinRecognized {
+    margin-top: 20px;
+}
+
+.poptinFeaturesBox .poptinFeatures .poptinRecognized img {
+    max-width: 100%;
+    height: auto;
+}
+
+.poptinFeaturesBox .poptinFeatures .poptinRecognizedLabel {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 14px;
+    max-width: 277px;
+    margin: 0 auto 32px;
+}
+
+.poptinFeaturesBox .poptinFeatures .poptinRecognizedLabel::before,
+.poptinFeaturesBox .poptinFeatures .poptinRecognizedLabel::after {
+    content: '';
+    flex: 1;
+    border-top: 1px solid rgba(202, 208, 217, 1);
+}
+
+.poptinFeaturesBox .poptinFeatures .poptinRecognizedLabel span {
+    font-weight: 600;
+    font-size: 10px;
+    line-height: 140%;
+    letter-spacing: 3%;
+    text-transform: uppercase;
+    text-align: center;
+    color: rgba(90, 97, 133, 1);
+    padding: 0 10px;
+}
+
+.poptinFeaturesBox .poptinFeatures .poptinTestimonials {
+    margin: 48px auto 96px;
+    color: rgba(54, 42, 109, 1);
 }
 
 .poptinFeaturesBox .poptinFeatures .poptinTestimonials>div {
@@ -513,29 +584,46 @@ input:focus {
 }
 
 .poptinFeaturesBox .poptinFeatures .poptinTestimonials .review {
-    font-family: Poppins;
+    font-weight: 400;
     font-style: italic;
-    font-weight: normal;
     font-size: 14px;
     line-height: 150%;
     text-align: center;
-    color: #362A6D;
+    letter-spacing: 0%;
     margin-top: 15px;
     max-width: 400px;
 }
 
 .poptinFeaturesBox .poptinFeatures .poptinTestimonials .poptinNameCompany {
-    font-family: Poppins;
-    font-style: normal;
-    font-weight: 600;
-    font-size: 14px;
-    line-height: 140%;
-    color: #362A6D;
     margin-left: 12px;
 }
 
-.poptinFeaturesBox .poptinFeatures .poptinTestimonials img {
+.poptinFeaturesBox .poptinFeatures .poptinTestimonials .poptinNameCompany .name {
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 140%;
+    letter-spacing: 0%;
+}
+
+.poptinFeaturesBox .poptinFeatures .poptinTestimonials .poptinNameCompany .position {
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 140%;
+    letter-spacing: 0%;
+}
+
+.poptinFeaturesBox .poptinFeatures .poptinTestimonials .poptinTestimonialAvatar {
+    position: relative;
+    width: 48px;
+    height: 48px;
+    flex-shrink: 0;
+}
+
+.poptinFeaturesBox .poptinFeatures .poptinTestimonials .poptinTestimonialAvatar img {
+    position: absolute;
     border-radius: 12px;
+    top: -27px;
+    left: -37px;
 }
 
 .poptinFeaturesBox .poptinFeatures .poptinTestimonials div.bar {
@@ -628,13 +716,24 @@ input:focus {
     margin: 0px 20px;
 }
 
-.poptinWrap .marketplace>div>div>img {
-    width: 94px;
-    height: 26px;
+.poptinWrap .marketplace .marketplace-logo--capterra {
+    width: 109.89px;
+    height: 24.36px;
 }
 
-.poptinWrap .marketplace>div>div>img.wordpress {
-    width: 120px;
+.poptinWrap .marketplace .marketplace-logo--wordpress {
+    width: 131.57px;
+    height: 30.33px;
+}
+
+.poptinWrap .marketplace .marketplace-logo--g2crowd {
+    width: 94.19px;
+    height: 26.37px;
+}
+
+.poptinWrap .marketplace .marketplace-logo--trustpilot {
+    width: 124px;
+    height: 30px;
 }
 
 .poptinWrap .marketplace>div>div>div {
@@ -1174,7 +1273,7 @@ Start: Responsive
         flex-basis: 55%;
     }
 
-    .poptinFeaturesList {
+    .poptinFeaturesGrid {
         gap: 10px;
     }
 
@@ -1342,9 +1441,9 @@ Start: Responsive
         margin-top: 45px;
     }
 
-    .poptinFeaturesList {
-        flex-direction: column;
-        gap: 0;
+    .poptinFeaturesGrid {
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
     }
 
     .poptinFeaturesTitle {
@@ -1353,11 +1452,6 @@ Start: Responsive
 
     .poptinTestimonials {
         margin-top: 25px;
-    }
-
-    .poptinFeaturesBox .poptinFeatures .poptinFeaturesList ul {
-        margin: 0;
-        pad: 0;
     }
 
     #poptinExplanatoryVideo.modal .card,

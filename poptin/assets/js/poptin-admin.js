@@ -521,9 +521,11 @@ jQuery(document).ready(function ($) {
 		return this;
 	};
 
-	// Handle focus on window load as well (in case document ready fires before forms are fully rendered)
+	// Focus on page load: attempt on document ready, then again after full load
+	setTimeout(handleFormFocus, 100);
+
 	jQuery(window).on('load', function() {
-		setTimeout(handleFormFocus, 300);
+		setTimeout(handleFormFocus, 500);
 	});
 });
 

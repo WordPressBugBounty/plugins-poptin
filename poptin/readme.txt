@@ -3,7 +3,7 @@ Contributors: poptin, galdub, tomeraharon
 Tags: email marketing, email automation, newsletter, pop ups, popup
 Requires at least: 3.1
 Tested up to: 7.0
-Stable tag: 1.3.11
+Stable tag: 1.3.12
 Plugin URI: https://www.poptin.com
 License: GPLv3
 
@@ -23,7 +23,7 @@ Create beautiful email campaigns, newsletters, email popups, sms pop ups, exit i
 * Send targeted newsletters and email campaigns
 * Automate welcome, abandoned cart, birthday, reactivation and lifecycle emails
 * Recover cart abandonment with spin the wheel, exit offers and upsell pop up
-* Nurture customers with personalized marketing journeys, coupons and promotions
+* Nurture customers with personalized email marketing journeys, coupons and promotions
 
 [youtube  https://www.youtube.com/watch?v=gZGz0tawfx8]
 
@@ -35,10 +35,10 @@ Create beautiful email campaigns, newsletters, email popups, sms pop ups, exit i
 
 
 Poptin gives you everything you need to grow and engage your audience in one platform. Organize and segment contacts using behavioral and engagement data, create and send unlimited email campaigns and newsletters, and automate personalized customer journeys based on subscriber activity, website behavior, ecommerce events, and lifecycle stages to increase conversions, retention, and revenue. 
-Unlimited email campaigns and unlimited email sending on all email marketing plans - no monthly sending caps or per-campaign limits. 
+<strong>Unlimited email campaigns and unlimited email sending on all email marketing plans</strong> - no monthly sending caps or per-campaign limits. 
 
 <strong>Contact Management & Segmentation</strong>
-Organize, manage, and segment your audience using tags, custom properties, popup and form interactions, engagement history, activity tracking, and behavioral data. Create highly targeted segments based on subscriber attributes, actions, website activity, and campaign engagement to deliver more relevant experience
+Organize, manage, and segment your audience using tags, custom properties, popup and form interactions, engagement history, activity tracking, and behavioral data. Create highly targeted segments based on subscriber attributes, actions, website activity, and email campaign engagement to deliver more relevant experience
 
 * Contact profiles with complete activity history and engagement timeline
 * Custom properties including text, number, date, and boolean fields
@@ -68,7 +68,7 @@ Create, personalize, and send beautiful email campaigns and newsletters with our
 * Visual automation workflow builder
 * Welcome email automations
 * Abandoned cart recovery sequences
-* Birthday and anniversary automations
+* Birthday and anniversary email automations
 * Reactivation and win-back campaigns
 * Lead nurturing sequences
 * Coupon delivery automations
@@ -79,7 +79,7 @@ Create, personalize, and send beautiful email campaigns and newsletters with our
 * Trigger automation from email opens, clicks, and engagement activity
 * Trigger email automations from tags, subscriber preferences, and contact property changes
 * Trigger automations from dates, birthdays, anniversaries, and custom date fields
-* Wait and delay actions for timed customer journeys
+* Wait and delay actions for timed email automation and customer journeys
 * Split conditions and branching logic for advanced automation flows
 * Multi-step customer journeys with personalized paths
 * Automation performance tracking and reporting
@@ -92,7 +92,7 @@ Poptin forms and popup plugin tracks the website's visitors' behavior and shows 
 
 You can create anything your marketing heart desires, from advanced overlays to SMS popups, inline forms, call button pop up, WhatsApp button, welcome bar, exit popups, and social widgets - it’s all on-brand and fully customizable with our powerful popup builder. Our popup plugin includes exit intent trigger on the free plan and many other advanced features. The free plan comes with 1,000 visitors of popups and forms per month.
 
-<strong>Unlimited popups, unlimited forms, unlimited integrations, unlimited leads.</strong>
+<strong>Unlimited popups, forms, integrations & leads.</strong>
 
 
 = What do you get with Poptin? = 
@@ -286,6 +286,9 @@ You can connect Poptin for free to your favorite email platform and CRM includin
 11. Design your own stunning mobile pop up
 
 == Changelog ==
+
+= 1.3.12 =
+Fix for Poptin logout to prevent disconnection.
 
 = 1.3.11 =
 Introduced Poptin Email with - allowing users to create newsletters, send email campaigns, and build email automations directly from Poptin.
