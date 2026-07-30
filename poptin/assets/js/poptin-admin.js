@@ -222,7 +222,7 @@ jQuery(document).ready(function ($) {
 		// Check if we have marketplace token data available
 		if (typeof poptin_settings.has_marketplace_token !== 'undefined' && poptin_settings.has_marketplace_token) {
 			// User has full registration - try to get iframe URL or use login flow
-			var iframe = $('.poptin-dashboard-iframe');
+			var iframe = $('.poptin-iframe');
 			if (iframe.length > 0 && iframe.attr('src')) {
 				fullScreenUrl = iframe.attr('src');
 			} else {

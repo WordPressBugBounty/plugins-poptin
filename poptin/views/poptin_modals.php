@@ -136,8 +136,7 @@ if (!defined('ABSPATH')) {
     </div>
 
     <!-- Start: Poptin Support Widget -->
-    <div class="ps-widget">
-        <!-- popover -->
+    <!-- <div class="ps-widget">
         <div class="ps-widget__popover">
             <div class="ps-widget__popover__header">
                 <img
@@ -190,7 +189,6 @@ if (!defined('ABSPATH')) {
                 </a>
             </div>
         </div>
-        <!-- button -->
         <button class="ps-widget__trigger-btn">
             <img 
                 src="<?= esc_url(POPTIN_URL . '/assets/images/support-icon.svg') ?>" 
@@ -201,7 +199,7 @@ if (!defined('ABSPATH')) {
                 draggable="false"
             >
         </button>
-    </div>
+    </div> -->
 
     <style>
         /* Modal display fixes */

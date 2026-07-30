@@ -47,43 +47,71 @@ a:focus {
     height: 718px;
     max-height: 810px;
     background: #f9faff;
-    padding: 32px;
+    padding: 24px;
     box-sizing: border-box;
     box-shadow: 0px 3px 6px -4px rgba(54, 42, 109, 0.12), 0px 6px 16px rgba(54, 42, 109, 0.08), 0px 9px 28px 8px rgba(54, 42, 109, 0.05);
     border-radius: 20px;
     position: relative;
 }
 
-.poptinWrap:not(:first-child) {
-    height: 810px;
+/* Full Poptin authentication page */
+.poptin > .poptin-wrap {
+    width: auto;
+    min-height: calc(100vh - 32px);
+    margin: 0;
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
 }
 
-#authWrap {
-    height: 790px;
+.poptin > .poptin-wrap > .poptinWrap {
+    width: min(1078px, 100%);
+    max-width: 1078px;
+    margin: auto;
+    flex-shrink: 0;
 }
 
+.poptin > .poptin-wrap > .poptin-conscent-footer {
+    width: 100%;
+    flex-shrink: 0;
+    text-align: center;
+    padding: 16px 10px 4px;
+    box-sizing: border-box;
+}
+.poptin > .poptin-wrap > .poptin-conscent-footer p {
+    margin: 0;
+}
 
 #customersWrap {
     height: 790px;
     padding: 42px 32px;
 }
-
-.poptinContentBox {
-    width: 480px;
-    height: 100%;
+.poptinContentBoxInner{
+    width: 632px;
+    height: calc(100% - 15px);
     position: relative;
     background: #FFFFFF;
     border: 1px solid #E9EDF7;
-    flex-basis: 50%;
+    flex-basis: 70%;
     box-sizing: border-box;
     border-radius: 20px;
     z-index: 1000;
     padding: 32px;
     box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
 }
 
-.poptinContentBox .poptinView {
-    margin-top: 97px;
+.poptinLogo {
+    display: inline-flex;
+}
+
+.poptinContentBox .ppaccountmanager {
+    width: min(350px, 100%);
+    margin: auto;
+    text-align: center;
+    transform: translateY(-19px);
 }
 
 .popotinFormByline {
@@ -118,7 +146,23 @@ a:focus {
     left: 16px;
     font-family: Poppins;
 }
+.poptin-conscent-footer {
+    text-align: center;
+    font-family: Poppins;
+    color: #5A6185;
+}
 
+.poptin-conscent-footer p {
+    font-size: 14px;
+    line-height: 1;
+}
+
+.poptin-conscent-footer p a {
+    font-weight: 600;
+    color: inherit;
+    text-decoration: underline 1px #b5bfc9;
+    padding-bottom: 5px;
+}
 input {
     font-size: 14px;
     padding: 10px 10px 10px 5px;
@@ -287,7 +331,7 @@ input:focus {
 .poptinContentBox .poptinView form .other-links a {
     font-family: Poppins;
     font-style: normal;
-    font-weight: 600;
+    font-weight: 500;
     font-size: 16px;
     line-height: 100%;
     color: #707EAE;
@@ -319,11 +363,12 @@ input:focus {
 }
 
 .poptinContentBox .poptinView form {
-    margin-top: 42px;
+    margin: 42px auto 0px;
+    max-width: 430px;
 }
 
 .poptinContentBox .poptinView form.ppFormLogin {
-    margin-top: 106px;
+    margin-top: 42px;
 }
 
 .poptinContentBox .poptinView form .external-link-icon {
@@ -359,7 +404,7 @@ input:focus {
     background: linear-gradient(180deg, #7761DF 0%, #5335DD 100%);
     border-radius: 12px;
     border: none;
-    margin-top: 16px;
+    margin-top: 24px;
     font-family: Poppins;
     font-style: normal;
     font-weight: 600;
@@ -392,6 +437,8 @@ input:focus {
     font-weight: bold;
     font-size: 36px;
     color: #362A6D;
+    text-align: center;
+    line-height: 1;
 }
 
 .poptinContentBox .poptinView .description span {
@@ -405,6 +452,17 @@ input:focus {
     font-size: 16px;
     line-height: 140%;
     color: #362A6D;
+    text-align: center;
+
+}
+
+.poptinContentBox .poptinContentFootManaged {
+    text-align: center;
+}
+
+.poptinContentBox .poptinContentFootManaged p {
+    margin: 8px 0px;
+    font-family: Poppins;
 }
 
 .poptinContentBox .poptinContentFoot {
@@ -465,11 +523,11 @@ input:focus {
 }
 
 .poptinFeaturesBox {
-    flex-basis: 50%;
-    margin-left: 50px;
+    flex-basis: 30%;
+    margin-left: 24px;
     padding: 10px;
     box-sizing: border-box;
-    padding-top: 40px;
+    padding-top: 24px;
     font-family: Poppins;
     color: rgba(54, 42, 109, 1);
 }
@@ -575,7 +633,7 @@ input:focus {
 }
 
 .poptinFeaturesBox .poptinFeatures .poptinTestimonials {
-    margin: 48px auto 96px;
+    margin: 93px auto 93px;
     color: rgba(54, 42, 109, 1);
 }
 
@@ -584,7 +642,7 @@ input:focus {
 }
 
 .poptinFeaturesBox .poptinFeatures .poptinTestimonials .review {
-    font-weight: 400;
+    font-weight: 300;
     font-style: italic;
     font-size: 14px;
     line-height: 150%;
@@ -1254,148 +1312,136 @@ End: Poptin Dashboard reset and iframe
 Start: Responsive
 ---------------------------- */
 @media (max-width: 1300px) {
+
     .poptinWrap {
-        max-width: 980px;
+        width: min(980px, 100%);
+        height: auto;
+        min-height: 700px;
         padding: 20px;
-        width: auto;
     }
 
     .poptinContentBox {
-        padding: 20px;
-        flex-basis: 45%;
-        width: 400px;
+        flex: 1 1 60%;
+        width: auto;
+        min-width: 0;
+    }
+
+    /* This is the important fix */
+    .poptinContentBoxInner {
+        width: 100%;
+        max-width: 100%;
+        min-width: 0;
     }
 
     .poptinFeaturesBox {
+        flex: 1 1 40%;
         margin-left: 20px;
-        position: relative;
-        overflow: hidden;
-        flex-basis: 55%;
+        padding-top: 16px;
+        min-width: 0;
+    }
+
+    .poptinFeatures {
+        max-width: 100%;
     }
 
     .poptinFeaturesGrid {
-        gap: 10px;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 18px;
     }
 
-    .poptinWrap .customersReview .poptinCustomer {
-        padding: 14px;
+    .poptinFeaturesGrid .poptinFeatureItem span {
+        font-size: 15px;
     }
 
-    .poptinWrap .marketplace>div {
-        margin: 0 2px;
+    .poptinContentBox .ppaccountmanager {
+        width: min(350px, 100%);
     }
 
-    .poptinContentBox .poptinView .description {
-        font-size: 14px;
+    .poptinContentBox .poptinView form {
+        max-width: 100%;
     }
 
-    #poptinExplanatoryVideo.modal .card,
-    #whereIsMyId.modal .card
-    {
-        max-width: 650px;
-        width: 650px !important;
-    }
-
-    #poptinExplanatoryVideo.modal .card iframe{
-        width: 580px !important;
-        height: 330px !important;
-    }
-
-    #whereIsMyId.modal .card .card-content {
-        grid-template-columns: 1fr 1fr;
-        max-height: 400px;
-        overflow-y: auto;
-    }
-
-    .poptinContentBox .poptinLogged .poptinView .footer .important-note {
-        width: calc(100% - 45px);
+    .poptinFeaturesBox .poptinFeatures .poptinTestimonials {
+        margin: 60px auto;
     }
 }
 
-@media (max-width: 1000px) {
-    .poptinWrap {
-        max-width: 575px;
+
+@media screen and (max-width: 1180px) {
+    .poptin > .poptin-wrap {
+        display: flex;
         flex-direction: column;
-        padding: 32px;
+        justify-content: flex-start;
+        min-height: calc(100vh - 32px);
+        padding: 20px;
+    }
+
+    .poptin > .poptin-wrap > .poptinWrap {
+        width: min(680px, 100%);
         height: auto !important;
-        max-height: fit-content !important;
+        min-height: 0 !important;
+        max-height: none !important;
+
+        margin: 20px auto 0;
+        padding: 24px;
+
+        display: flex;
+        flex-direction: column;
+        overflow: visible;
     }
 
     .poptinContentBox {
-        flex-basis: 100%;
         width: 100%;
-        padding-bottom: 140px;
+        flex: none;
+        padding: 0;
+    }
+
+    .poptinContentBoxInner {
+        width: 100%;
+        max-width: none;
+        height: auto;
+        min-height: 560px;
     }
 
     .poptinFeaturesBox {
-        flex-basis: 100%;
-        margin-left: 0px;
+        width: 100%;
+        flex: none;
+        margin: 30px 0 0;
+        padding: 24px;
+
+        /* Override overflow:hidden from 1300px */
+        overflow: visible;
     }
 
-    .poptinContentBox .poptinView,
-    .poptinContentBox .poptinView form {
-        margin-top: 60px;
+    .poptinFeaturesBox .poptinFeatures {
+        width: 100%;
+        max-width: none;
     }
 
-    .poptinFeaturesBox>img {
-        display: none;
+    .poptinFeaturesBox .poptinFeatures .poptinFeaturesGrid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 20px;
     }
 
-    .poptinWrap .customersReview {
-        grid-template-columns: repeat(2, 1fr);
+    .poptinFeaturesBox .poptinFeatures .poptinTestimonials {
+        margin: 50px auto;
     }
 
-    .marketplace {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        margin-top: 30px !important;
-        padding-bottom: 80px;
-        column-gap: 15px;
-        row-gap: 35px;
+    .poptinFeaturesBox .poptinFeatures .poptinRecognized {
+        margin: 0 auto;
     }
 
-    .poptinWrap .marketplace>div>div>div {
-        margin-top: 2px;
+    .poptin > .poptin-wrap > .poptin-conscent-footer {
+        width: 100%;
+        margin: 15px 0 0;
+        padding: 0;
+        flex-shrink: 0;
+        text-align: center;
     }
 
-    .poptinWrap .marketplace>div {
-        margin: 0 !important;
-    }
-
-    .poptinWrap .marketplace>div .pipe {
-        display: none;
-    }
-
-    #poptinExplanatoryVideo.modal .card,
-    #whereIsMyId.modal .card
-    {
-        max-width: 550px;
-        width: 550px !important;
-    }
-
-    #poptinExplanatoryVideo.modal .card iframe{
-        width: 480px !important;
-        height: 230px !important;
-    }
-
-    #whereIsMyId.modal .card .card-content {
-        grid-template-columns: 1fr;
-    }
-
-    .find-id-1,
-    .find-id-2,
-    .find-id-3 {
-        display: flex;
-        flex-direction: column-reverse;
-    }
-
-    .poptinContentBox .poptinLogged .poptinView .footer {
-        position: relative;
-        transform: translateY(80%);
-    }
-
-    .poptinContentBox .poptinLogged .poptinView .footer .important-note {
-        width: calc(100% - 30px);
+    .poptin-conscent-footer p {
+        margin: 0;
+        line-height: 1.5;
     }
 }
 
@@ -1406,10 +1452,44 @@ Start: Responsive
     }
 }
 
-@media (max-width: 782px) {
-    .poptin-dashboard-iframe {
-        left: 0;
+@media screen and (max-width: 782px) {
+    .poptin > .poptin-wrap {
+        min-height: calc(100vh - 46px);
+        padding: 16px;
+    }
+
+    .poptin > .poptin-wrap > .poptinWrap {
         width: 100%;
+        padding: 16px;
+        border-radius: 16px;
+    }
+
+    .poptinContentBoxInner {
+        min-height: 560px;
+        padding: 24px;
+        border-radius: 16px;
+    }
+
+    .poptinFeaturesBox {
+        display: none;
+    }
+
+    .poptinContentBox .ppaccountmanager {
+        width: min(350px, 100%);
+        transform: none;
+    }
+
+    .poptinContentBox .poptinView form {
+        width: 100%;
+        margin-top: 36px;
+    }
+
+    .poptin-conscent-footer {
+        padding: 16px 12px 0;
+    }
+
+    .poptin-conscent-footer p {
+        font-size: 12px;
     }
 }
 
@@ -1483,26 +1563,57 @@ Start: Responsive
     }
 }
 
-@media (max-width: 450px) {
-    .marketplace {
-        grid-template-columns: 1fr;
+@media screen and (max-width: 480px) {
+    .poptin > .poptin-wrap {
+        padding: 10px;
     }
 
-    .poptinLearnMore span, .poptinLearnMore a {
-        font-size: 12px;
+    .poptin > .poptin-wrap > .poptinWrap {
+        padding: 10px;
+        border-radius: 12px;
     }
 
-    .poptinWrap {
-        padding: 16px;
-        border-radius: 8px
+    .poptinContentBoxInner {
+        min-height: 520px;
+        padding: 20px 16px;
+        border-radius: 12px;
     }
 
-    .poptinContentBox {
-        border-radius: 8px;
+    .poptinLogo img {
+        width: 120px;
+        height: auto;
     }
 
-    #lookfamiliar.modal .card, #byebyeModal.modal .card, #makingsure.modal .card {
-        width: 340px;
+    .poptinContentBox .poptinView .title {
+        font-size: 28px;
+    }
+
+    .poptinContentBox .poptinView .description {
+        font-size: 13px;
+    }
+
+    .poptinContentBox .poptinView input {
+        height: 50px;
+        font-size: 14px;
+    }
+
+    .poptin button:not(.ps-widget__trigger-btn),
+    .poptin a.cbutton {
+        height: 46px !important;
+        font-size: 16px;
+    }
+
+    .poptinContentBox .poptinView form .other-links a {
+        font-size: 13px;
+    }
+
+    .poptin-conscent-footer p {
+        font-size: 11px;
+    }
+
+    .ps-widget {
+        --page-spacing: 14px;
+        --trigger-btn-size: 52px;
     }
 }
 
@@ -1555,4 +1666,30 @@ End: Responsive
         width: 100%;
         height: 100%;
     }
+}
+.poptin > .poptin-wrap {
+    min-height: calc(100vh - 32px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.poptin > .poptin-wrap > .poptinWrap {
+    margin: 0 auto;
+    flex-shrink: 0;
+}
+
+.poptin > .poptin-wrap > .poptin-conscent-footer {
+    width: 100%;
+    margin-top: 15px;
+    padding: 0;
+    flex-shrink: 0;
+    text-align: center;
+}
+
+.poptin-conscent-footer p {
+    margin: 0;
+    line-height: 1.5;
 }

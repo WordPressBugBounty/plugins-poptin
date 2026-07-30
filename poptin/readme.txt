@@ -3,7 +3,7 @@ Contributors: poptin, galdub, tomeraharon
 Tags: email marketing, email automation, newsletter, pop ups, popup
 Requires at least: 3.1
 Tested up to: 7.0
-Stable tag: 1.3.12
+Stable tag: 1.3.13
 Plugin URI: https://www.poptin.com
 License: GPLv3
 
@@ -28,14 +28,14 @@ Create beautiful email campaigns, newsletters, email popups, sms pop ups, exit i
 [youtube  https://www.youtube.com/watch?v=gZGz0tawfx8]
 
 > <strong>Create a Poptin account for free</strong><br>
-> Poptin is a web application that works perfectly with WordPress and many more web platforms. Start creating your first popups and contact forms by <a href="https://app.popt.in/register?utm_source=wordpress" target="_blank" title="open free Poptin account"><strong>opening your free account</strong></a>
+> Poptin is an all-in-one web application that works seamlessly with WordPress and many other platforms. Create popups, forms, email campaigns, newsletters, and email marketing automation by <a href="https://app.popt.in/register?utm_source=wordpress" target="_blank" title="open free Poptin account"><strong>opening your free account</strong></a>
 
 
 = 📧 EMAIL MARKETING AUTOMATION =
 
 
 Poptin gives you everything you need to grow and engage your audience in one platform. Organize and segment contacts using behavioral and engagement data, create and send unlimited email campaigns and newsletters, and automate personalized customer journeys based on subscriber activity, website behavior, ecommerce events, and lifecycle stages to increase conversions, retention, and revenue. 
-<strong>Unlimited email campaigns and unlimited email sending on all email marketing plans</strong> - no monthly sending caps or per-campaign limits. 
+<strong>Unlimited email campaigns and unlimited email sending on all email marketing plans</strong> - no monthly sending caps. 
 
 <strong>Contact Management & Segmentation</strong>
 Organize, manage, and segment your audience using tags, custom properties, popup and form interactions, engagement history, activity tracking, and behavioral data. Create highly targeted segments based on subscriber attributes, actions, website activity, and email campaign engagement to deliver more relevant experience
@@ -52,7 +52,7 @@ Organize, manage, and segment your audience using tags, custom properties, popup
 * Dynamic merge tags and contact personalization
 
 Segment by 
-* Tags, preferences, and custom properties
+* Tags, newsletter preferences, and custom properties
 * Popup and form submissions
 * Popup views, conversions, and gamified popup interactions
 * Email opens, clicks, bounces, and engagement activity
@@ -63,7 +63,7 @@ Segment by
 Dynamic segments that update automatically as contacts change
 
 
-<strong>Email Campaigns</strong>
+<strong>Email Campaigns & Newsletters</strong>
 Create, personalize, and send beautiful email campaigns and newsletters with our drag-and-drop editor. Use audience segmentation, preferences, dynamic content, personalization, coupons, scheduling, and advanced targeting to reach the right contacts at the right time and improve engagement, conversions, and sales.
 * Visual automation workflow builder
 * Welcome email automations
@@ -90,7 +90,7 @@ Create, personalize, and send beautiful email campaigns and newsletters with our
 
 Poptin forms and popup plugin tracks the website's visitors' behavior and shows the right message at the right time. The platform helps to improve conversion rate and turn more visitors into leads, sales, newsletter subscribers, increases engagement, and recovers abandoning website and cart visitors using exit offers and <a href="https://www.poptin.com/blog/exit-intent-technology-can-grow-business/" target="_blank" title="exit intent">exit intent</a> technology and many other pop ups triggers.
 
-You can create anything your marketing heart desires, from advanced overlays to SMS popups, inline forms, call button pop up, WhatsApp button, welcome bar, exit popups, and social widgets - it’s all on-brand and fully customizable with our powerful popup builder. Our popup plugin includes exit intent trigger on the free plan and many other advanced features. The free plan comes with 1,000 visitors of popups and forms per month.
+You can create anything your marketing heart desires, from advanced overlays to SMS popups, inline forms, call button pop up, WhatsApp button, welcome bar, exit popups, and social widgets – it’s all on-brand and fully customizable with our powerful popup builder. Our popup plugin includes exit intent trigger on the free plan and many other advanced features. The free plan comes with 1,000 visitors of popups and forms per month, and 250 contact for email marketing.
 
 <strong>Unlimited popups, forms, integrations & leads.</strong>
 
@@ -134,11 +134,11 @@ increase sales
 
 * <strong>Custom HTML Embeds</strong> - Embed quizzes, surveys, polls, maps, forms, social share buttons, and more directly into your popups 
 
-* <strong>Multi-Step Popup Flows</strong> - Launch a popup from another popup and create double opt-in, triple opt-in, 2-step lightbox, slide-in, fullscreen overlays, and advanced conversion flows 
+* <strong>Multi-Step Popup Flows</strong> - Launch a popup from another popup and create double opt-in, 2-step lightbox, slide-in, fullscreen overlays, and advanced conversion flows 
 
 * <strong>Heatmaps & Session Recording Integrations</strong> - Track popup and form performance with Hotjar, Microsoft Clarity, Lucky Orange, ClickTale, FullStory, Smartlook, Crazy Egg, Mouseflow, and other heatmap and session recording tools 
 
-* <strong>Compatible with Popular WordPress Builders</strong> - Show popups and forms on websites built with Elementor, Divi, Bricks Builder, Beaver Builder, WPBakery, SeedProd, Oxygen, Breakdance, Gutenberg, and more. 
+* <strong>Compatible with Popular WordPress Builders</strong> - Show popups and forms on websites built with Elementor, Divi, Bricks Builder, Beaver Builder, WPBakery, SeedProd, Oxygen, Breakdance, Gutenberg, and more
 
 * <strong>Deep WooCommerce integration - coming soon!</strong>
 
@@ -185,7 +185,7 @@ Just like our pop ups, inline forms support all of Poptin’s integrations, allo
 [youtube  https://www.youtube.com/watch?v=3cVDhT68MEY]
 
 > <strong>Create a Poptin account for free</strong><br>
-> Poptin is a web application that works perfectly with WordPress and many more web platforms. Start creating your first popups and contact forms by <a href="https://app.popt.in/register?utm_source=wordpress" target="_blank" title="open free Poptin account"><strong>opening your free account</strong></a>
+> Poptin is an all-in-one web application that works seamlessly with WordPress and many other platforms. Create popups, forms, email campaigns, newsletters, and email marketing automation by <a href="https://app.popt.in/register?utm_source=wordpress" target="_blank" title="open free Poptin account"><strong>opening your free account</strong></a>
 
 
 = Coupons =
@@ -286,6 +286,9 @@ You can connect Poptin for free to your favorite email platform and CRM includin
 11. Design your own stunning mobile pop up
 
 == Changelog ==
+
+= 1.3.13 =
+Refreshed WordPress admin signup and login experience and simplified the plugin admin UI.
 
 = 1.3.12 =
 Fix for Poptin logout to prevent disconnection.

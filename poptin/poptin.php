@@ -3,7 +3,7 @@
 Plugin Name: Poptin
 Contributors: poptin, galdub, tomeraharon
 Description: Use Poptin to get more leads, sales, and email subscribers. Create targeted beautiful pop ups and forms in less than 2 minutes with ease.
-Version: 1.3.12
+Version: 1.3.13
 Author: Poptin
 Author URI: https://www.poptin.com
 Text Domain: poptin
@@ -18,7 +18,7 @@ if (!defined('ABSPATH')) {
     exit;
 }
 
-define('POPTIN_VERSION', '1.3.12');
+define('POPTIN_VERSION', '1.3.13');
 define('POPTIN_PATH', dirname(__FILE__));
 define('POPTIN_PATH_INCLUDES', dirname(__FILE__) . '/inc');
 define('POPTIN_FOLDER', basename(POPTIN_PATH));
@@ -590,14 +590,14 @@ class POPTIN_Plugin_Base
                 array($this, 'poptin_admin_view')
             );
 
-            add_submenu_page(
-                'poptin',
-                __("Poptin Full-Screen View", 'ppbase'), 
-                __("Full-Screen View", 'ppbase'),
-                'manage_options',
-                'poptin-full-screen',
-                array($this, 'poptin_fullscreen_view')
-            );
+            // add_submenu_page(
+            //     'poptin',
+            //     __("Poptin Full-Screen View", 'ppbase'), 
+            //     __("Full-Screen View", 'ppbase'),
+            //     'manage_options',
+            //     'poptin-full-screen',
+            //     array($this, 'poptin_fullscreen_view')
+            // );
 
             add_submenu_page(
                 'poptin',
